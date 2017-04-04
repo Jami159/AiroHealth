@@ -308,7 +308,7 @@ class BleComponent extends Component {
 
   			this.data.ppgCounter++;
 
-  			console.log(stressNums);
+  			console.log("STRESS: ", stressNums);
   		}
   	} catch (error) {
   		console.error(error);
@@ -329,7 +329,7 @@ class BleComponent extends Component {
 
   			this.data.acclCounter++;
 
-  			console.log(stepsNums);
+  			console.log("STEPS: ", stepsNums);
   		}
   	} catch (error) {
   		console.error(error);

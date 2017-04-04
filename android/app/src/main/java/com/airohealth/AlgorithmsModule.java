@@ -44,7 +44,7 @@ public class AlgorithmsModule extends ReactContextBaseJavaModule {
 			WritableArray stressVals = Arguments.createArray();
 
 			for (double[] d : stressArr) {
-				stressVals.pushArray(this.toWritableArray(d, inner));
+				stressVals.pushArray(this.toWritableArray(d, d.length));
 			}
 
 			promise.resolve(stressVals);
@@ -57,6 +57,26 @@ public class AlgorithmsModule extends ReactContextBaseJavaModule {
 	@ReactMethod
 	public void getSteps(ReadableArray acclData, Promise promise) { //this method will be called from JS by React Native
 		try {
+			int outer = acclData.size();
+			int inner = acclData.getArray(0).size();
+
+			double[][] accl = new double[outer][inner];
+
+			for (int i = 0; i < outer; i++) {
+				for (int j = 0; j < inner; j++) {
+					accl[i][j] = acclData.getArray(i).getDouble(j);
+				}
+			}
+
+			double[][] stepsArr = getStepsJNI(accl);
+
+			WritableArray stepsVals = Arguments.createArray();
+
+			for (double[] d : stepsArr) {
+				stepsVals.pushArray(this.toWritableArray(d, d.length));
+			}
+
+			promise.resolve(stepsVals);
 
 		} catch (Exception e) {
 			promise.reject("ERR", e);
@@ -65,7 +85,7 @@ public class AlgorithmsModule extends ReactContextBaseJavaModule {
 
 	public WritableArray toWritableArray(double[] arr, int size) {
 		WritableArray tmp = Arguments.createArray();
-		for (int i=0; i<size; i++){
+		for (int i = 0; i < size; i++){
 			tmp.pushDouble(arr[i]);
 		}
 		return tmp;
