@@ -6,6 +6,7 @@ import {
 } from 'react-native';
 import { connect } from 'react-redux';
 import BleManager from 'react-native-ble-manager';
+import Algorithms from '../Algorithms';
 import {
 	startScan,
 	stopScan,
@@ -36,13 +37,18 @@ class BleComponent extends Component {
 
 			ppgSamples: [],
 			numPPG: 0,
+			ppgCounter: 0,
 
 			acclSamples: [],
 			numAccl: 0,
+			acclCounter: 0,
 
 			curTime: Math.floor(Date.now()/1000),
 
 			lostPackets: 0,
+
+			callGetStress: 0,
+			callGetSteps: 0,
 		};
 
 		this.state = {
@@ -52,7 +58,7 @@ class BleComponent extends Component {
 
 	componentDidMount() {
 		if (Platform.OS === 'android') {
-			this.setState({ deviceID: '' });
+			this.setState({ deviceID: "A0:E6:F8:D1:AF:81" });
 		} else if (Platform.OS === 'ios') {
 			this.setState({ deviceID: "760BEE80-3BAB-4389-814A-91816FF2DB9B" });
 		}
@@ -71,12 +77,12 @@ class BleComponent extends Component {
 			.addListener('BleManagerDidUpdateValueForCharacteristic', this.handleCharacteristicValueUpdate);
 
 		if (Platform.OS === 'android' && Platform.Version >= 23) {
-      PermissionsAndroid.checkPermission(PermissionsAndroid.PERMISSIONS.ACCESS_COARSE_LOCATION)
+      PermissionsAndroid.check(PermissionsAndroid.PERMISSIONS.ACCESS_COARSE_LOCATION)
       	.then((result) => {
           if (result) {
             console.log("Permission is OK");
           } else {
-            PermissionsAndroid.requestPermission(PermissionsAndroid.PERMISSIONS.ACCESS_COARSE_LOCATION)
+            PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.ACCESS_COARSE_LOCATION)
 	            .then((result) => {
 	              if (result) {
 	                console.log("User accept");
@@ -104,7 +110,7 @@ class BleComponent extends Component {
 		this.data.sampleQueue = [];
 		this.data.smallPackTime = -1;
 		this.data.bigPackTime = -1;
-		
+
 		this.props.changeDeviceState(device.peripheral, ble.DEVICE_STATE_DISCONNECTED);
 	}
 
@@ -129,6 +135,12 @@ class BleComponent extends Component {
 					}
 					this.parseLargePackets(byteArr, n, this.data.curTime);
 				}
+			}
+			if (this.data.callGetStress === 0) {
+				this.getStress();
+			}
+			if (this.data.callGetSteps === 0) {
+				this.getSteps();
 			}
 		}
 	}
@@ -218,7 +230,7 @@ class BleComponent extends Component {
 					console.log('Notification started');
 				})
 				.catch((error) => {
-					console.error(error);
+					console.log(error);
 				});
 		}
 	}
@@ -281,6 +293,48 @@ class BleComponent extends Component {
 				break;
 		}
 	}
+
+	async getStress() {
+  	try {
+  		var a = this.data.numPPG;
+  		var b = this.data.ppgCounter;
+
+  		if (a >= 1000*(b+1)) {
+  			var sliced = this.data.ppgSamples.slice(b*1000, (b+1)*1000);
+
+  			this.data.callGetStress++;
+  			stressNums = await Algorithms.getStress(sliced);
+  			this.data.callGetStress--;
+
+  			this.data.ppgCounter++;
+
+  			console.log(stressNums);
+  		}
+  	} catch (error) {
+  		console.error(error);
+  	}
+  }
+
+  async getSteps() {
+  	try {
+  		var a = this.data.numAccl;
+  		var b = this.data.acclCounter;
+
+  		if (a >= 500*(b+1)) {
+  			var sliced = this.data.acclSamples.slice(b*500, (b+1)*500);
+
+  			this.data.callGetSteps++;
+  			stepsNums = await Algorithms.getSteps(sliced);
+  			this.data.callGetSteps--;
+
+  			this.data.acclCounter++;
+
+  			console.log(stepsNums);
+  		}
+  	} catch (error) {
+  		console.error(error);
+  	}
+  }
 
 	render() {
 		console.log('RE RENDER');
