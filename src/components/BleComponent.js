@@ -12,6 +12,9 @@ import {
 	stopScan,
 	deviceFound,
 	changeDeviceState,
+
+	addStress,
+	addSteps,
 } from '../actions';
 import * as ble from '../actions/types';
 import {
@@ -303,12 +306,15 @@ class BleComponent extends Component {
   			var sliced = this.data.ppgSamples.slice(b*1000, (b+1)*1000);
 
   			this.data.callGetStress++;
-  			stressNums = await Algorithms.getStress(sliced);
+  			newStress = await Algorithms.getStress(sliced);
   			this.data.callGetStress--;
 
   			this.data.ppgCounter++;
 
-  			console.log("STRESS: ", stressNums);
+  			this.props.addStress(newStress);
+
+  			console.log("STRESS: ", newStress);
+  			console.log(this.props.stressData);
   		}
   	} catch (error) {
   		console.error(error);
@@ -324,12 +330,15 @@ class BleComponent extends Component {
   			var sliced = this.data.acclSamples.slice(b*500, (b+1)*500);
 
   			this.data.callGetSteps++;
-  			stepsNums = await Algorithms.getSteps(sliced);
+  			newSteps = await Algorithms.getSteps(sliced);
   			this.data.callGetSteps--;
 
   			this.data.acclCounter++;
 
-  			console.log("STEPS: ", stepsNums);
+  			this.props.addSteps(newSteps);
+
+  			console.log("STEPS: ", newSteps);
+  			console.log(this.props.stepsData);
   		}
   	} catch (error) {
   		console.error(error);
@@ -353,11 +362,19 @@ const mapStateToProps = (state) => {
 		bleState,
 	} = state.ble;
 
+	const {
+		stressData,
+		stepsData,
+	} = state.algoData;
+
 	return {
 		bleDevice,
 		selectedDeviceId,
 		scanning,
 		bleState,
+
+		stressData,
+		stepsData,
 	};
 };
 
@@ -366,4 +383,7 @@ export default connect(mapStateToProps, {
 	stopScan,
 	deviceFound,
 	changeDeviceState,
+
+	addStress,
+	addSteps,
 })(BleComponent);
