@@ -94,6 +94,10 @@ android {
         versionName "1.0"
         ndk {
             abiFilters "armeabi-v7a", "x86"
+            moduleName "Algorithms_jni"
+            ldLibs "log"
+            cFlags "-std=c++11 -fexceptions"
+            stl "gnustl_shared"
         }
     }
     splits {
