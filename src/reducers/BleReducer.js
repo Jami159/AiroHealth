@@ -21,7 +21,10 @@ export default (state = INITIAL_STATE, action) => {
 		case ble.PUSH_ERROR:
 			return { ...state, errors: [...state.errors, action.errorMessage] };
 		case ble.POP_ERROR:
-			return { ...state, errors: [...state.errors.slice(0, errors.length - 1), ...state.errors.slice(errors.length)] };
+			return {
+				...state,
+				errors: [...state.errors.slice(0, ...state.errors.length - 1), ...state.errors.slice(...state.errors.length)]
+			};
 		default:
 			return state;
 	}

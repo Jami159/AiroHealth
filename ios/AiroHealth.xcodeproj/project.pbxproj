@@ -39,6 +39,7 @@
 		831864281E92FD8000515AFE /* hrv.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 831864271E92FD8000515AFE /* hrv.cpp */; };
 		8318642B1E92FD9700515AFE /* steps.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8318642A1E92FD9700515AFE /* steps.cpp */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
+		836182701E9447F000C272C3 /* libART.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 836182551E9447BB00C272C3 /* libART.a */; };
 		8389B6AA1E75BAB5004A5E27 /* libBleManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8389B6901E75BAA5004A5E27 /* libBleManager.a */; };
 		83E55C021E772AE300E6573E /* libBleManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8389B6901E75BAA5004A5E27 /* libBleManager.a */; };
 /* End PBXBuildFile section */
@@ -233,6 +234,13 @@
 			remoteGlobalIDString = 58B5119B1A9E6C1200147676;
 			remoteInfo = RCTText;
 		};
+		836182541E9447BB00C272C3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 836182501E9447BB00C272C3 /* ART.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0CF68AC11AF0540F00FF9E5C;
+			remoteInfo = ART;
+		};
 		8389B68F1E75BAA5004A5E27 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 8389B68B1E75BAA5004A5E27 /* BleManager.xcodeproj */;
@@ -273,6 +281,7 @@
 		8318642A1E92FD9700515AFE /* steps.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = steps.cpp; sourceTree = "<group>"; };
 		8318642C1E92FDA100515AFE /* steps.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = steps.h; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
+		836182501E9447BB00C272C3 /* ART.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ART.xcodeproj; path = "../node_modules/react-native/Libraries/ART/ART.xcodeproj"; sourceTree = "<group>"; };
 		8389B68B1E75BAA5004A5E27 /* BleManager.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BleManager.xcodeproj; path = "../node_modules/react-native-ble-manager/ios/BleManager.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -289,6 +298,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				836182701E9447F000C272C3 /* libART.a in Frameworks */,
 				8389B6AA1E75BAB5004A5E27 /* libBleManager.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
 				5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */,
@@ -463,6 +473,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				836182501E9447BB00C272C3 /* ART.xcodeproj */,
 				8389B68B1E75BAA5004A5E27 /* BleManager.xcodeproj */,
 				5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
@@ -484,6 +495,14 @@
 			children = (
 				832341B51AAA6A8300B99B32 /* libRCTText.a */,
 				3DAD3E941DF850E9000B6D8A /* libRCTText-tvOS.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		836182511E9447BB00C272C3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				836182551E9447BB00C272C3 /* libART.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -636,6 +655,10 @@
 			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
 			projectDirPath = "";
 			projectReferences = (
+				{
+					ProductGroup = 836182511E9447BB00C272C3 /* Products */;
+					ProjectRef = 836182501E9447BB00C272C3 /* ART.xcodeproj */;
+				},
 				{
 					ProductGroup = 8389B68C1E75BAA5004A5E27 /* Products */;
 					ProjectRef = 8389B68B1E75BAA5004A5E27 /* BleManager.xcodeproj */;
@@ -869,6 +892,13 @@
 			fileType = archive.ar;
 			path = libRCTText.a;
 			remoteRef = 832341B41AAA6A8300B99B32 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		836182551E9447BB00C272C3 /* libART.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libART.a;
+			remoteRef = 836182541E9447BB00C272C3 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		8389B6901E75BAA5004A5E27 /* libBleManager.a */ = {

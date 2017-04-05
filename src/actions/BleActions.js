@@ -11,20 +11,20 @@ export function startScan() {
 	return {
 		type: START_SCAN,
 	};
-};
+}
 
 export function stopScan() {
 	return {
 		type: STOP_SCAN,
 	};
-};
+}
 
 export function deviceFound(device) {
 	return {
 		type: DEVICE_FOUND,
 		device,
 	};
-};
+}
 
 export function changeDeviceState(deviceIdentifier, bleState) {
 	return {
@@ -32,17 +32,17 @@ export function changeDeviceState(deviceIdentifier, bleState) {
 		deviceIdentifier,
 		bleState,
 	};
-};
+}
 
 export function pushError(errorMessage) {
 	return {
 		type: PUSH_ERROR,
 		errorMessage,
 	};
-};
+}
 
-export function popError(){
+export function popError() {
 	return {
 		type: POP_ERROR,
 	};
-};
+}

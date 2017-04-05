@@ -7,7 +7,6 @@ import {
 import ReduxThunk from 'redux-thunk';
 import {
 	View,
-	Text,
 } from 'react-native';
 import reducers from './reducers';
 import Router from './Router';

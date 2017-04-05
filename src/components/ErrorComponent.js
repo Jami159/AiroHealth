@@ -49,7 +49,7 @@ const styles = {
     paddingBottom: 5,
   },
   message: {
-  	alignSelf: 'center',
+		alignSelf: 'center',
     color: 'white',
     fontWeight: 'bold',
     width: 150,
@@ -68,4 +68,4 @@ const mapStateToProps = (state) => {
 	};
 };
 
-export default connect(mapStateToProps, {startScan, stopScan})(ErrorComponent);
+export default connect(mapStateToProps, { startScan, stopScan })(ErrorComponent);

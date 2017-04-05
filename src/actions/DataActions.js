@@ -8,11 +8,11 @@ export function addStress(values) {
 		type: ADD_STRESS_VALS,
 		values,
 	};
-};
+}
 
 export function addSteps(values) {
 	return {
 		type: ADD_STEPS_VALS,
 		values,
 	};
-};
+}

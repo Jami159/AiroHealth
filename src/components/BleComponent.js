@@ -46,7 +46,7 @@ class BleComponent extends Component {
 			numAccl: 0,
 			acclCounter: 0,
 
-			curTime: Math.floor(Date.now()/1000),
+			curTime: Math.floor(Date.now() / 1000),
 
 			lostPackets: 0,
 
@@ -81,20 +81,20 @@ class BleComponent extends Component {
 
 		if (Platform.OS === 'android' && Platform.Version >= 23) {
       PermissionsAndroid.check(PermissionsAndroid.PERMISSIONS.ACCESS_COARSE_LOCATION)
-      	.then((result) => {
-          if (result) {
-            console.log("Permission is OK");
-          } else {
-            PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.ACCESS_COARSE_LOCATION)
-	            .then((result) => {
-	              if (result) {
-	                console.log("User accept");
-	              } else {
-	                console.log("User refuse");
-	              }
-	            });
-          }
-	      });
+				.then((result) => {
+					if (result) {
+						console.log('Permission is OK');
+					} else {
+						PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.ACCESS_COARSE_LOCATION)
+							.then((result) => {
+								if (result) {
+									console.log('User accept');
+								} else {
+									console.log('User refuse');
+								}
+							});
+					}
+				});
     }
 	}
 
@@ -108,7 +108,7 @@ class BleComponent extends Component {
 	}
 
 	handleDisconnectPeripheral(device) {
-		console.log("Disconnected from", device);
+		console.log('Disconnected from', device);
 
 		this.data.sampleQueue = [];
 		this.data.smallPackTime = -1;
@@ -123,7 +123,7 @@ class BleComponent extends Component {
 			var byteArr = hexStringToByteArray(args.value);
 			var n = byteArr.length;
 			if (n === 6) {
-				this.data.curTime = Math.floor(Date.now()/1000);
+				this.data.curTime = Math.floor(Date.now() / 1000);
 				this.parseSmallPackets(byteArr, n);
 			} else if (n === 182) {
 				var counter = byteToInt(byteArr.slice(180, 182), false);
@@ -298,52 +298,52 @@ class BleComponent extends Component {
 	}
 
 	async getStress() {
-  	try {
-  		var a = this.data.numPPG;
-  		var b = this.data.ppgCounter;
+		try {
+			var a = this.data.numPPG;
+			var b = this.data.ppgCounter;
 
-  		if (a >= 1000*(b+1)) {
-  			var sliced = this.data.ppgSamples.slice(b*1000, (b+1)*1000);
+			if (a >= 1000 * (b + 1)) {
+				var sliced = this.data.ppgSamples.slice(b * 1000, (b + 1) * 1000);
 
-  			this.data.callGetStress++;
-  			newStress = await Algorithms.getStress(sliced);
-  			this.data.callGetStress--;
+				this.data.callGetStress++;
+				var newStress = await Algorithms.getStress(sliced);
+				this.data.callGetStress--;
 
-  			this.data.ppgCounter++;
+				this.data.ppgCounter++;
 
-  			this.props.addStress(newStress);
+				this.props.addStress(newStress);
 
-  			console.log("STRESS: ", newStress);
-  			console.log(this.props.stressData);
-  		}
-  	} catch (error) {
-  		console.error(error);
-  	}
-  }
+				console.log("STRESS: ", newStress);
+				console.log(this.props.stressData);
+			}
+		} catch (error) {
+			console.error(error);
+		}
+	}
 
   async getSteps() {
-  	try {
-  		var a = this.data.numAccl;
-  		var b = this.data.acclCounter;
+		try {
+			var a = this.data.numAccl;
+			var b = this.data.acclCounter;
 
-  		if (a >= 500*(b+1)) {
-  			var sliced = this.data.acclSamples.slice(b*500, (b+1)*500);
+			if (a >= 500*(b+1)) {
+				var sliced = this.data.acclSamples.slice(b*500, (b+1)*500);
 
-  			this.data.callGetSteps++;
-  			newSteps = await Algorithms.getSteps(sliced);
-  			this.data.callGetSteps--;
+				this.data.callGetSteps++;
+				var newSteps = await Algorithms.getSteps(sliced);
+				this.data.callGetSteps--;
 
-  			this.data.acclCounter++;
+				this.data.acclCounter++;
 
-  			this.props.addSteps(newSteps);
+				this.props.addSteps(newSteps);
 
-  			console.log("STEPS: ", newSteps);
-  			console.log(this.props.stepsData);
-  		}
-  	} catch (error) {
-  		console.error(error);
-  	}
-  }
+				console.log("STEPS: ", newSteps);
+				console.log(this.props.stepsData);
+			}
+		} catch (error) {
+			console.error(error);
+		}
+	}
 
 	render() {
 		console.log('RE RENDER');
