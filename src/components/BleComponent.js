@@ -13,6 +13,7 @@ import {
 	deviceFound,
 	changeDeviceState,
 
+	updateBattery,
 	addStress,
 	addSteps,
 } from '../actions';
@@ -28,7 +29,7 @@ class BleComponent extends Component {
 		super();
 
 		this.data = {
-			battery: 0,
+			//battery: 0,
 			voltage: 0,
 			current: 0,
 			smallPackTime: -1,
@@ -149,12 +150,15 @@ class BleComponent extends Component {
 	}
 
 	parseSmallPackets(byteArr, n) {
-		this.data.battery = byteToInt(byteArr.slice(0, 1), false);
+		var battery = byteToInt(byteArr.slice(0, 1), false);
+		if (this.props.battery !== battery) {
+			this.props.updateBattery(battery);
+		}
 		this.data.voltage = byteToInt(byteArr.slice(1, 2), false);
 		this.data.current = byteToInt(byteArr.slice(2, 3), true);
 		this.data.smallPackTime = byteToInt(byteArr.slice(3, 6), false);
 
-		console.log(this.data.battery, this.data.voltage, this.data.current, new Date(this.data.smallPackTime * 1000));
+		console.log(this.props.battery, this.data.voltage, this.data.current, new Date(this.data.smallPackTime * 1000));
 	}
 
 	parseLargePackets(byteArr, n, curtime) {
@@ -326,8 +330,8 @@ class BleComponent extends Component {
 			var a = this.data.numAccl;
 			var b = this.data.acclCounter;
 
-			if (a >= 500*(b+1)) {
-				var sliced = this.data.acclSamples.slice(b*500, (b+1)*500);
+			if (a >= 500 * (b + 1)) {
+				var sliced = this.data.acclSamples.slice(b * 500, (b + 1) * 500);
 
 				this.data.callGetSteps++;
 				var newSteps = await Algorithms.getSteps(sliced);
@@ -363,6 +367,7 @@ const mapStateToProps = (state) => {
 	} = state.ble;
 
 	const {
+		battery,
 		stressData,
 		stepsData,
 	} = state.algoData;
@@ -373,6 +378,7 @@ const mapStateToProps = (state) => {
 		scanning,
 		bleState,
 
+		battery,
 		stressData,
 		stepsData,
 	};
@@ -384,6 +390,7 @@ export default connect(mapStateToProps, {
 	deviceFound,
 	changeDeviceState,
 
+	updateBattery,
 	addStress,
 	addSteps,
 })(BleComponent);

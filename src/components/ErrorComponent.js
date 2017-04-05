@@ -42,17 +42,17 @@ class ErrorComponent extends Component {
 
 const styles = {
   container: {
-    padding: 20,
-    backgroundColor: '#253248',
-    flexDirection: 'row',
-    position: 'relative',
-    paddingBottom: 5,
+		padding: 20,
+		backgroundColor: '#253248',
+		flexDirection: 'row',
+		position: 'relative',
+		paddingBottom: 5,
   },
   message: {
 		alignSelf: 'center',
-    color: 'white',
-    fontWeight: 'bold',
-    width: 150,
+		color: 'white',
+		fontWeight: 'bold',
+		width: 150,
   },
 };
 
