@@ -62,9 +62,11 @@ class BleComponent extends Component {
 
 	componentDidMount() {
 		if (Platform.OS === 'android') {
-			this.setState({ deviceID: "A0:E6:F8:D1:AF:81" });
+			//this.setState({ deviceID: 'A0:E6:F8:D1:AF:81' });
+			this.setState({ deviceID: 'A0:E6:F8:D1:BD:07' }); //my watch
 		} else if (Platform.OS === 'ios') {
-			this.setState({ deviceID: "760BEE80-3BAB-4389-814A-91816FF2DB9B" });
+			//this.setState({ deviceID: '760BEE80-3BAB-4389-814A-91816FF2DB9B' });
+			this.setState({ deviceID: '44F3F0B6-3522-4E4B-B2BD-2F477B6BCC0E' }); //my watch
 		}
 
 		BleManager.start({ showAlert: false });
@@ -317,7 +319,7 @@ class BleComponent extends Component {
 
 				this.props.addStress(newStress);
 
-				console.log("STRESS: ", newStress);
+				console.log('STRESS: ', newStress);
 				console.log(this.props.stressData);
 			}
 		} catch (error) {
@@ -341,7 +343,7 @@ class BleComponent extends Component {
 
 				this.props.addSteps(newSteps);
 
-				console.log("STEPS: ", newSteps);
+				console.log('STEPS: ', newSteps);
 				console.log(this.props.stepsData);
 			}
 		} catch (error) {
