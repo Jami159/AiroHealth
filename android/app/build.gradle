@@ -130,6 +130,10 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-push-notification')
+    compile ('com.google.android.gms:play-services-gcm:10.2.1') {
+        force = true;
+    }
     compile project(':aws-sdk-react-native-sns')
     compile project(':aws-sdk-react-native-lambda')
     compile project(':aws-sdk-react-native-dynamodb')

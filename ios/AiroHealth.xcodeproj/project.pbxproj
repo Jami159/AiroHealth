@@ -44,6 +44,7 @@
 		831864281E92FD8000515AFE /* hrv.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 831864271E92FD8000515AFE /* hrv.cpp */; };
 		8318642B1E92FD9700515AFE /* steps.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8318642A1E92FD9700515AFE /* steps.cpp */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
+		8323CB091E982EF400F45943 /* libRCTPushNotification.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8323CB061E982ECD00F45943 /* libRCTPushNotification.a */; };
 		835800311E972E63007B81D7 /* AWSDynamoDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 835800301E972E63007B81D7 /* AWSDynamoDB.framework */; };
 		835800321E972E63007B81D7 /* AWSDynamoDB.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 835800301E972E63007B81D7 /* AWSDynamoDB.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		835800681E9734AF007B81D7 /* AWSLambda.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 835800671E9734AF007B81D7 /* AWSLambda.framework */; };
@@ -250,6 +251,20 @@
 			remoteGlobalIDString = 58B5119B1A9E6C1200147676;
 			remoteInfo = RCTText;
 		};
+		8323CB051E982ECD00F45943 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8323CB001E982ECD00F45943 /* RCTPushNotification.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RCTPushNotification;
+		};
+		8323CB071E982ECD00F45943 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8323CB001E982ECD00F45943 /* RCTPushNotification.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3D05745F1DE6004600184BB4;
+			remoteInfo = "RCTPushNotification-tvOS";
+		};
 		835800141E972E23007B81D7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0A0C84CC74F74EE089884722 /* DynamoDB.xcodeproj */;
@@ -355,6 +370,8 @@
 		8318642A1E92FD9700515AFE /* steps.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = steps.cpp; sourceTree = "<group>"; };
 		8318642C1E92FDA100515AFE /* steps.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = steps.h; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
+		8323CB001E982ECD00F45943 /* RCTPushNotification.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTPushNotification.xcodeproj; path = "../node_modules/react-native/Libraries/PushNotificationIOS/RCTPushNotification.xcodeproj"; sourceTree = "<group>"; };
+		8323CB0A1E98304200F45943 /* AiroHealth.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = AiroHealth.entitlements; path = AiroHealth/AiroHealth.entitlements; sourceTree = "<group>"; };
 		835800301E972E63007B81D7 /* AWSDynamoDB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSDynamoDB.framework; path = "../node_modules/aws-sdk-react-native-dynamodb/ios/Frameworks/AWSDynamoDB.framework"; sourceTree = "<group>"; };
 		835800671E9734AF007B81D7 /* AWSLambda.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSLambda.framework; path = "../node_modules/aws-sdk-react-native-lambda/ios/Frameworks/AWSLambda.framework"; sourceTree = "<group>"; };
 		8358009F1E97371A007B81D7 /* AWSSNS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSSNS.framework; path = "../node_modules/aws-sdk-react-native-sns/ios/Frameworks/AWSSNS.framework"; sourceTree = "<group>"; };
@@ -383,6 +400,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8323CB091E982EF400F45943 /* libRCTPushNotification.a in Frameworks */,
 				836182701E9447F000C272C3 /* libART.a in Frameworks */,
 				8389B6AA1E75BAB5004A5E27 /* libBleManager.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
@@ -517,6 +535,7 @@
 		13B07FAE1A68108700A75B9A /* AiroHealth */ = {
 			isa = PBXGroup;
 			children = (
+				8323CB0A1E98304200F45943 /* AiroHealth.entitlements */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -570,6 +589,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				8323CB001E982ECD00F45943 /* RCTPushNotification.xcodeproj */,
 				836182501E9447BB00C272C3 /* ART.xcodeproj */,
 				8389B68B1E75BAA5004A5E27 /* BleManager.xcodeproj */,
 				5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */,
@@ -597,6 +617,15 @@
 			children = (
 				832341B51AAA6A8300B99B32 /* libRCTText.a */,
 				3DAD3E941DF850E9000B6D8A /* libRCTText-tvOS.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8323CB011E982ECD00F45943 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8323CB061E982ECD00F45943 /* libRCTPushNotification.a */,
+				8323CB081E982ECD00F45943 /* libRCTPushNotification-tvOS.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -777,6 +806,11 @@
 					};
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = M9KVQB5P64;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -850,6 +884,10 @@
 				{
 					ProductGroup = 00C302D41ABCB9D200DB3ED1 /* Products */;
 					ProjectRef = 00C302D31ABCB9D200DB3ED1 /* RCTNetwork.xcodeproj */;
+				},
+				{
+					ProductGroup = 8323CB011E982ECD00F45943 /* Products */;
+					ProjectRef = 8323CB001E982ECD00F45943 /* RCTPushNotification.xcodeproj */;
 				},
 				{
 					ProductGroup = 139105B71AF99BAD00B5F7CC /* Products */;
@@ -1060,6 +1098,20 @@
 			fileType = archive.ar;
 			path = libRCTText.a;
 			remoteRef = 832341B41AAA6A8300B99B32 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8323CB061E982ECD00F45943 /* libRCTPushNotification.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRCTPushNotification.a;
+			remoteRef = 8323CB051E982ECD00F45943 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8323CB081E982ECD00F45943 /* libRCTPushNotification-tvOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libRCTPushNotification-tvOS.a";
+			remoteRef = 8323CB071E982ECD00F45943 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		835800151E972E23007B81D7 /* libDynamoDB.a */ = {
@@ -1340,6 +1392,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = AiroHealth/AiroHealth.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = M9KVQB5P64;
@@ -1354,6 +1407,7 @@
 					"$(SRCROOT)/../node_modules/aws-sdk-react-native-dynamodb/ios/DynamoDB/**",
 					"$(SRCROOT)/../node_modules/aws-sdk-react-native-lambda/ios/Lambda/**",
 					"$(SRCROOT)/../node_modules/aws-sdk-react-native-sns/ios/SNS/**",
+					"$(SRCROOT)/../node_modules/react-native/Libraries/PushNotificationIOS/**",
 				);
 				INFOPLIST_FILE = AiroHealth/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1362,7 +1416,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = aljami.airo.app.AiroHealth;
+				PRODUCT_BUNDLE_IDENTIFIER = airo.final;
 				PRODUCT_NAME = AiroHealth;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -1372,6 +1426,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = AiroHealth/AiroHealth.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = M9KVQB5P64;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1385,6 +1440,7 @@
 					"$(SRCROOT)/../node_modules/aws-sdk-react-native-dynamodb/ios/DynamoDB/**",
 					"$(SRCROOT)/../node_modules/aws-sdk-react-native-lambda/ios/Lambda/**",
 					"$(SRCROOT)/../node_modules/aws-sdk-react-native-sns/ios/SNS/**",
+					"$(SRCROOT)/../node_modules/react-native/Libraries/PushNotificationIOS/**",
 				);
 				INFOPLIST_FILE = AiroHealth/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1393,7 +1449,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = aljami.airo.app.AiroHealth;
+				PRODUCT_BUNDLE_IDENTIFIER = airo.final;
 				PRODUCT_NAME = AiroHealth;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
