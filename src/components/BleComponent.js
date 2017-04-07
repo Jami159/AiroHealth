@@ -118,6 +118,7 @@ class BleComponent extends Component {
 		this.data.bigPackTime = -1;
 
 		this.props.changeDeviceState(device.peripheral, ble.DEVICE_STATE_DISCONNECTED);
+		this.props.startScan();
 	}
 
 	handleCharacteristicValueUpdate(args) {
@@ -188,9 +189,9 @@ class BleComponent extends Component {
           if (this.data.sampleQueue.length === 6)  {
             if ((this.data.smallPackTime >= 0) && (this.data.bigPackTime >= 0)) {
               var result = byteToAccl(this.data.sampleQueue);
-              var data = [time_now].concat(result);
+              var acclData = [time_now].concat(result);
 
-              this.data.acclSamples = this.data.acclSamples.concat([data]);
+              this.data.acclSamples = this.data.acclSamples.concat([acclData]);
               this.data.numAccl++;
             }
 
@@ -205,9 +206,9 @@ class BleComponent extends Component {
           }
         } else {
           if ((this.data.smallPackTime >= 0) && (this.data.bigPackTime >= 0)) {
-            var data = [time_now, byteToInt(this.data.sampleQueue, true)];
+            var ppgData = [time_now, byteToInt(this.data.sampleQueue, true)];
 
-            this.data.ppgSamples = this.data.ppgSamples.concat([data]);
+            this.data.ppgSamples = this.data.ppgSamples.concat([ppgData]);
             this.data.numPPG++;
           }
 
@@ -248,7 +249,7 @@ class BleComponent extends Component {
 		//Handle Scanning
 		if (nextProps.scanning !== this.props.scanning) {
 			if (nextProps.scanning) {
-				BleManager.scan([], 30, true)
+				BleManager.scan(['FFF0'], 30, true)
 					.then(() => {
 						console.log('Scan Started');
 					})
