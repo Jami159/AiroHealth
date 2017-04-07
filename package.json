@@ -10,6 +10,7 @@
     "art": "^0.10.1",
     "aws-sdk-react-native-core": "../dependencies/aws-sdk-react-native-core-0.0.2.tgz",
     "aws-sdk-react-native-dynamodb": "../dependencies/aws-sdk-react-native-dynamodb-0.0.1.tgz",
+    "aws-sdk-react-native-lambda": "../dependencies/aws-sdk-react-native-lambda-0.0.1.tgz",
     "d3": "^4.7.4",
     "d3-array": "^1.1.1",
     "d3-scale": "^1.0.5",
