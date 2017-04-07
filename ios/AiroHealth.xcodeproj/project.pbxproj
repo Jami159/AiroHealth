@@ -43,11 +43,14 @@
 		831864281E92FD8000515AFE /* hrv.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 831864271E92FD8000515AFE /* hrv.cpp */; };
 		8318642B1E92FD9700515AFE /* steps.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8318642A1E92FD9700515AFE /* steps.cpp */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
+		835800311E972E63007B81D7 /* AWSDynamoDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 835800301E972E63007B81D7 /* AWSDynamoDB.framework */; };
+		835800321E972E63007B81D7 /* AWSDynamoDB.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 835800301E972E63007B81D7 /* AWSDynamoDB.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		836182701E9447F000C272C3 /* libART.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 836182551E9447BB00C272C3 /* libART.a */; };
 		8389B6AA1E75BAB5004A5E27 /* libBleManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8389B6901E75BAA5004A5E27 /* libBleManager.a */; };
 		83E55C021E772AE300E6573E /* libBleManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8389B6901E75BAA5004A5E27 /* libBleManager.a */; };
 		83FD85461E96DBEE0018B718 /* AWSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83FD85451E96DBEE0018B718 /* AWSCore.framework */; };
 		83FD85471E96DBEE0018B718 /* AWSCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 83FD85451E96DBEE0018B718 /* AWSCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C74E79C7B6A44F408CE66B66 /* libDynamoDB.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 67483CDA209548D7B1B8CCAE /* libDynamoDB.a */; };
 		FE18141611AE455A8D2001D1 /* libRCTFBSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 40E9B0C5B9B7428C800DB80E /* libRCTFBSDK.a */; };
 /* End PBXBuildFile section */
 
@@ -241,6 +244,13 @@
 			remoteGlobalIDString = 58B5119B1A9E6C1200147676;
 			remoteInfo = RCTText;
 		};
+		835800141E972E23007B81D7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0A0C84CC74F74EE089884722 /* DynamoDB.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EB9657831D2C6A8600905130;
+			remoteInfo = DynamoDB;
+		};
 		8358FFBB1E97096A007B81D7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 49D7616893B94763AEA4BCB1 /* RCTFBSDK.xcodeproj */;
@@ -278,6 +288,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				835800321E972E63007B81D7 /* AWSDynamoDB.framework in Embed Frameworks */,
 				83FD85471E96DBEE0018B718 /* AWSCore.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -295,6 +306,7 @@
 		00E356EE1AD99517003FC87E /* AiroHealthTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AiroHealthTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* AiroHealthTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AiroHealthTests.m; sourceTree = "<group>"; };
+		0A0C84CC74F74EE089884722 /* DynamoDB.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = DynamoDB.xcodeproj; path = "../node_modules/aws-sdk-react-native-dynamodb/ios/DynamoDB.xcodeproj"; sourceTree = "<group>"; };
 		0AD1D02DBA664ECE89A8FC38 /* Core.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = Core.xcodeproj; path = "../node_modules/aws-sdk-react-native-core/ios/Core.xcodeproj"; sourceTree = "<group>"; };
 		139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTSettings.xcodeproj; path = "../node_modules/react-native/Libraries/Settings/RCTSettings.xcodeproj"; sourceTree = "<group>"; };
 		139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTWebSocket.xcodeproj; path = "../node_modules/react-native/Libraries/WebSocket/RCTWebSocket.xcodeproj"; sourceTree = "<group>"; };
@@ -311,6 +323,7 @@
 		40E9B0C5B9B7428C800DB80E /* libRCTFBSDK.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTFBSDK.a; sourceTree = "<group>"; };
 		49D7616893B94763AEA4BCB1 /* RCTFBSDK.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RCTFBSDK.xcodeproj; path = "../node_modules/react-native-fbsdk/ios/RCTFBSDK.xcodeproj"; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
+		67483CDA209548D7B1B8CCAE /* libDynamoDB.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libDynamoDB.a; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		8318640A1E92FBA500515AFE /* Algorithms.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Algorithms.mm; sourceTree = "<group>"; };
 		831864261E92FC0800515AFE /* Algorithms.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Algorithms.h; sourceTree = "<group>"; };
@@ -319,6 +332,7 @@
 		8318642A1E92FD9700515AFE /* steps.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = steps.cpp; sourceTree = "<group>"; };
 		8318642C1E92FDA100515AFE /* steps.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = steps.h; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
+		835800301E972E63007B81D7 /* AWSDynamoDB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSDynamoDB.framework; path = "../node_modules/aws-sdk-react-native-dynamodb/ios/Frameworks/AWSDynamoDB.framework"; sourceTree = "<group>"; };
 		836182501E9447BB00C272C3 /* ART.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ART.xcodeproj; path = "../node_modules/react-native/Libraries/ART/ART.xcodeproj"; sourceTree = "<group>"; };
 		836F866903B74B07A3846C75 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = ./ios/Frameworks/FBSDKShareKit.framework; sourceTree = "<group>"; };
 		8389B68B1E75BAA5004A5E27 /* BleManager.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BleManager.xcodeproj; path = "../node_modules/react-native-ble-manager/ios/BleManager.xcodeproj"; sourceTree = "<group>"; };
@@ -360,6 +374,8 @@
 				4D345599AF494ABD90C03015 /* FBSDKCoreKit.framework in Frameworks */,
 				64EBF7A49ECC47DBA273808E /* FBSDKShareKit.framework in Frameworks */,
 				6CC392FF6DB44EF4AD1EA1DD /* FBSDKLoginKit.framework in Frameworks */,
+				835800311E972E63007B81D7 /* AWSDynamoDB.framework in Frameworks */,
+				C74E79C7B6A44F408CE66B66 /* libDynamoDB.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -537,6 +553,7 @@
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
 				0AD1D02DBA664ECE89A8FC38 /* Core.xcodeproj */,
 				49D7616893B94763AEA4BCB1 /* RCTFBSDK.xcodeproj */,
+				0A0C84CC74F74EE089884722 /* DynamoDB.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -546,6 +563,14 @@
 			children = (
 				832341B51AAA6A8300B99B32 /* libRCTText.a */,
 				3DAD3E941DF850E9000B6D8A /* libRCTText-tvOS.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8358000E1E972E23007B81D7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				835800151E972E23007B81D7 /* libDynamoDB.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -577,6 +602,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				835800301E972E63007B81D7 /* AWSDynamoDB.framework */,
 				83FD85451E96DBEE0018B718 /* AWSCore.framework */,
 				13B07FAE1A68108700A75B9A /* AiroHealth */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
@@ -736,6 +762,10 @@
 				{
 					ProductGroup = 83FD85251E96DB710018B718 /* Products */;
 					ProjectRef = 0AD1D02DBA664ECE89A8FC38 /* Core.xcodeproj */;
+				},
+				{
+					ProductGroup = 8358000E1E972E23007B81D7 /* Products */;
+					ProjectRef = 0A0C84CC74F74EE089884722 /* DynamoDB.xcodeproj */;
 				},
 				{
 					ProductGroup = 00C302A81ABCB8CE00DB3ED1 /* Products */;
@@ -972,6 +1002,13 @@
 			remoteRef = 832341B41AAA6A8300B99B32 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		835800151E972E23007B81D7 /* libDynamoDB.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libDynamoDB.a;
+			remoteRef = 835800141E972E23007B81D7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		8358FFBC1E97096A007B81D7 /* libRCTFBSDK.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -1163,12 +1200,14 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/aws-sdk-react-native-core/ios/Core/**",
 					"$(SRCROOT)/../node_modules/react-native-fbsdk/ios/RCTFBSDK/**",
+					"$(SRCROOT)/../node_modules/aws-sdk-react-native-dynamodb/ios/DynamoDB/**",
 				);
 				INFOPLIST_FILE = AiroHealthTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
@@ -1195,12 +1234,14 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/aws-sdk-react-native-core/ios/Core/**",
 					"$(SRCROOT)/../node_modules/react-native-fbsdk/ios/RCTFBSDK/**",
+					"$(SRCROOT)/../node_modules/aws-sdk-react-native-dynamodb/ios/DynamoDB/**",
 				);
 				INFOPLIST_FILE = AiroHealthTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
@@ -1228,6 +1269,7 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/aws-sdk-react-native-core/ios/Core/**",
 					"$(SRCROOT)/../node_modules/react-native-fbsdk/ios/RCTFBSDK/**",
+					"$(SRCROOT)/../node_modules/aws-sdk-react-native-dynamodb/ios/DynamoDB/**",
 				);
 				INFOPLIST_FILE = AiroHealth/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1256,6 +1298,7 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/aws-sdk-react-native-core/ios/Core/**",
 					"$(SRCROOT)/../node_modules/react-native-fbsdk/ios/RCTFBSDK/**",
+					"$(SRCROOT)/../node_modules/aws-sdk-react-native-dynamodb/ios/DynamoDB/**",
 				);
 				INFOPLIST_FILE = AiroHealth/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1288,11 +1331,13 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/aws-sdk-react-native-core/ios/Core/**",
 					"$(SRCROOT)/../node_modules/react-native-fbsdk/ios/RCTFBSDK/**",
+					"$(SRCROOT)/../node_modules/aws-sdk-react-native-dynamodb/ios/DynamoDB/**",
 				);
 				INFOPLIST_FILE = "AiroHealth-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
@@ -1326,11 +1371,13 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/aws-sdk-react-native-core/ios/Core/**",
 					"$(SRCROOT)/../node_modules/react-native-fbsdk/ios/RCTFBSDK/**",
+					"$(SRCROOT)/../node_modules/aws-sdk-react-native-dynamodb/ios/DynamoDB/**",
 				);
 				INFOPLIST_FILE = "AiroHealth-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
@@ -1365,6 +1412,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.AiroHealth-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1391,6 +1439,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
@@ -1426,6 +1475,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks/",
 					"$(SRCROOT)/../node_modules/aws-sdk-react-native-core/ios/Frameworks",
+					"$(SRCROOT)/../node_modules/aws-sdk-react-native-dynamodb/ios/Frameworks",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1473,6 +1523,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks/",
 					"$(SRCROOT)/../node_modules/aws-sdk-react-native-core/ios/Frameworks",
+					"$(SRCROOT)/../node_modules/aws-sdk-react-native-dynamodb/ios/Frameworks",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;

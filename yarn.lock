@@ -212,6 +212,10 @@ aws-sdk-react-native-core@../dependencies/aws-sdk-react-native-core-0.0.2.tgz:
   version "0.0.2"
   resolved "../dependencies/aws-sdk-react-native-core-0.0.2.tgz#5db9dc0c97ce5f729736850412c2bcd568200b9b"
 
+aws-sdk-react-native-dynamodb@../dependencies/aws-sdk-react-native-dynamodb-0.0.1.tgz:
+  version "0.0.1"
+  resolved "../dependencies/aws-sdk-react-native-dynamodb-0.0.1.tgz#0ddb25d8396ab0206e91cd5571497623ed9698d5"
+
 aws-sign2@~0.6.0:
   version "0.6.0"
   resolved "https://registry.yarnpkg.com/aws-sign2/-/aws-sign2-0.6.0.tgz#14342dd38dbcc94d0e5b87d763cd63612c0e794f"

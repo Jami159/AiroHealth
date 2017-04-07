@@ -130,6 +130,7 @@ android {
 }
 
 dependencies {
+    compile project(':aws-sdk-react-native-dynamodb')
     compile project(':react-native-fbsdk')
     compile project(':aws-sdk-react-native-core')
     compile fileTree(dir: "libs", include: ["*.jar"])

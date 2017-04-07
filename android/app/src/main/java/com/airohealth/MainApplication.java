@@ -4,6 +4,7 @@ import android.app.Application;
 import android.util.Log;
 
 import com.facebook.react.ReactApplication;
+import com.amazonaws.reactnative.dynamodb.AWSRNDynamoDBPackage;
 import com.facebook.reactnative.androidsdk.FBSDKPackage;
 import com.amazonaws.reactnative.core.AWSRNCorePackage;
 import com.facebook.react.ReactInstanceManager;
@@ -33,6 +34,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
             new MainReactPackage(),
+            new AWSRNDynamoDBPackage(),
             new FBSDKPackage(mCallbackManager),
             new AWSRNCorePackage(),
             new MyReactPackage(),
