@@ -220,6 +220,10 @@ aws-sdk-react-native-lambda@../dependencies/aws-sdk-react-native-lambda-0.0.1.tg
   version "0.0.1"
   resolved "../dependencies/aws-sdk-react-native-lambda-0.0.1.tgz#531ef69a92ac2df364fb1e65cfbe114640254fb8"
 
+aws-sdk-react-native-sns@../dependencies/aws-sdk-react-native-sns-0.0.1.tgz:
+  version "0.0.1"
+  resolved "../dependencies/aws-sdk-react-native-sns-0.0.1.tgz#d6d4f7bfb40057cb425f4f0ebbbfd09f6cd6918e"
+
 aws-sign2@~0.6.0:
   version "0.6.0"
   resolved "https://registry.yarnpkg.com/aws-sign2/-/aws-sign2-0.6.0.tgz#14342dd38dbcc94d0e5b87d763cd63612c0e794f"

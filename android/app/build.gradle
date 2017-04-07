@@ -130,6 +130,7 @@ android {
 }
 
 dependencies {
+    compile project(':aws-sdk-react-native-sns')
     compile project(':aws-sdk-react-native-lambda')
     compile project(':aws-sdk-react-native-dynamodb')
     compile project(':react-native-fbsdk')

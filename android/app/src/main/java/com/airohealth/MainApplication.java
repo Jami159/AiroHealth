@@ -4,6 +4,7 @@ import android.app.Application;
 import android.util.Log;
 
 import com.facebook.react.ReactApplication;
+import com.amazonaws.reactnative.sns.AWSRNSNSPackage;
 import com.amazonaws.reactnative.lambda.AWSRNLambdaPackage;
 import com.amazonaws.reactnative.dynamodb.AWSRNDynamoDBPackage;
 import com.facebook.reactnative.androidsdk.FBSDKPackage;
@@ -35,6 +36,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
             new MainReactPackage(),
+            new AWSRNSNSPackage(),
             new AWSRNLambdaPackage(),
             new AWSRNDynamoDBPackage(),
             new FBSDKPackage(mCallbackManager),
