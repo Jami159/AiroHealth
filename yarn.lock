@@ -224,6 +224,10 @@ aws-sdk-react-native-sns@../dependencies/aws-sdk-react-native-sns-0.0.1.tgz:
   version "0.0.1"
   resolved "../dependencies/aws-sdk-react-native-sns-0.0.1.tgz#d6d4f7bfb40057cb425f4f0ebbbfd09f6cd6918e"
 
+aws-sdk-react-native-transfer-utility@../dependencies/aws-sdk-react-native-transfer-utility-0.0.1.tgz:
+  version "0.0.1"
+  resolved "../dependencies/aws-sdk-react-native-transfer-utility-0.0.1.tgz#e4f2048c5d882ee45add4b82ae25af8c48b8b645"
+
 aws-sign2@~0.6.0:
   version "0.6.0"
   resolved "https://registry.yarnpkg.com/aws-sign2/-/aws-sign2-0.6.0.tgz#14342dd38dbcc94d0e5b87d763cd63612c0e794f"
@@ -3674,6 +3678,10 @@ react-native-experimental-navigation@0.26.x:
 react-native-fbsdk@^0.5.0:
   version "0.5.0"
   resolved "https://registry.yarnpkg.com/react-native-fbsdk/-/react-native-fbsdk-0.5.0.tgz#3ccd67d189755df11d366b8de9acb91ea2300e6e"
+
+react-native-push-notification@^2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/react-native-push-notification/-/react-native-push-notification-2.2.1.tgz#9b392cee8f5223a1e1772c9a88c95742549fcfc3"
 
 react-native-router-flux@^3.35.0:
   version "3.38.0"
