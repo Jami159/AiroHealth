@@ -4,6 +4,7 @@ import android.app.Application;
 import android.util.Log;
 
 import com.facebook.react.ReactApplication;
+import com.imagepicker.ImagePickerPackage;
 import com.dieam.reactnativepushnotification.ReactNativePushNotificationPackage;
 import com.amazonaws.reactnative.s3.AWSRNTransferUtilityPackage;
 import com.amazonaws.reactnative.sns.AWSRNSNSPackage;
@@ -38,6 +39,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
             new MainReactPackage(),
+            new ImagePickerPackage(),
             new ReactNativePushNotificationPackage(),
             new AWSRNTransferUtilityPackage(),
             new AWSRNSNSPackage(),

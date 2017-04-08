@@ -130,6 +130,7 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-image-picker')
     compile project(':react-native-push-notification')
     compile ('com.google.android.gms:play-services-gcm:10.2.1') {
         force = true;
