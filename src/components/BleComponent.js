@@ -65,8 +65,8 @@ class BleComponent extends Component {
 			//this.setState({ deviceID: 'A0:E6:F8:D1:AF:81' });
 			this.setState({ deviceID: 'A0:E6:F8:D1:BD:07' }); //my watch
 		} else if (Platform.OS === 'ios') {
-			//this.setState({ deviceID: '760BEE80-3BAB-4389-814A-91816FF2DB9B' });
-			this.setState({ deviceID: '44F3F0B6-3522-4E4B-B2BD-2F477B6BCC0E' }); //my watch
+			this.setState({ deviceID: '760BEE80-3BAB-4389-814A-91816FF2DB9B' });
+			//this.setState({ deviceID: '44F3F0B6-3522-4E4B-B2BD-2F477B6BCC0E' }); //my watch
 		}
 
 		BleManager.start({ showAlert: false });
@@ -249,16 +249,22 @@ class BleComponent extends Component {
 		//Handle Scanning
 		if (nextProps.scanning !== this.props.scanning) {
 			if (nextProps.scanning) {
-				BleManager.scan(['FFF0'], 30, true)
+				BleManager.scan(['FFF0'], 18000, false)
 					.then(() => {
 						console.log('Scan Started');
 					})
 					.catch((error) => {
 						nextProps.stopScan();
-						console.error(error);
+						console.log(error);
 					});
 			} else {
-				BleManager.stopScan();
+				BleManager.stopScan()
+					.then(() => {
+						console.log('Scan Stopped');
+					})
+					.catch((error) => {
+						console.log(error);
+					});
 			}
 		}
 
