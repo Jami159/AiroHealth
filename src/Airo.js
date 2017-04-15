@@ -12,6 +12,7 @@ import reducers from './reducers';
 import Router from './Router';
 import BleComponent from './components/BleComponent';
 import ErrorComponent from './components/ErrorComponent';
+import LoginForm from './components/LoginForm';
 
 class Airo extends Component {
 	render() {
@@ -21,6 +22,7 @@ class Airo extends Component {
 			<Provider store={store}>
 				<View style={{ flex: 1 }}>
 					<ErrorComponent />
+					<LoginForm />
 					<BleComponent />
 				</View>
 			</Provider>
