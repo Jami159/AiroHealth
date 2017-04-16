@@ -138,6 +138,7 @@ class BleComponent extends Component {
 		if (device.id === this.state.deviceID) {
 			this.props.changeDeviceState(device.id, ble.DEVICE_STATE_CONNECT);
 			this.props.deviceFound(device);
+
 			AsyncStorage.setItem(BLE_DEVICE_KEY, JSON.stringify(device));
 		}
 	}
