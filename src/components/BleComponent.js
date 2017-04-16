@@ -3,6 +3,7 @@ import {
 	NativeAppEventEmitter,
 	Platform,
 	PermissionsAndroid,
+	AsyncStorage,
 } from 'react-native';
 import { connect } from 'react-redux';
 import BleManager from 'react-native-ble-manager';
@@ -23,6 +24,8 @@ import {
 	byteToInt,
 	byteToAccl,
 } from './ParseDataHelper';
+
+var BLE_DEVICE_KEY = '@bleDevice:key';
 
 class BleComponent extends Component {
 	constructor() {
@@ -62,8 +65,8 @@ class BleComponent extends Component {
 
 	componentDidMount() {
 		if (Platform.OS === 'android') {
-			//this.setState({ deviceID: 'A0:E6:F8:D1:AF:81' });
-			this.setState({ deviceID: 'A0:E6:F8:D1:BD:07' }); //my watch
+			this.setState({ deviceID: 'A0:E6:F8:D1:AF:81' });
+			//this.setState({ deviceID: 'A0:E6:F8:D1:BD:07' }); //my watch
 		} else if (Platform.OS === 'ios') {
 			this.setState({ deviceID: '760BEE80-3BAB-4389-814A-91816FF2DB9B' });
 			//this.setState({ deviceID: '44F3F0B6-3522-4E4B-B2BD-2F477B6BCC0E' }); //my watch
@@ -99,6 +102,34 @@ class BleComponent extends Component {
 					}
 				});
     }
+
+    this.initializeBLE();
+	}
+
+	async initializeBLE() {
+		var storedBLE = await AsyncStorage.getItem(BLE_DEVICE_KEY);
+		if (storedBLE !== null) {
+			this.props.deviceFound(JSON.parse(storedBLE));
+		} else {
+			console.log('No stored BLE device found');
+		}
+
+		if (this.props.bleDevice !== null) {
+			await BleManager.isPeripheralConnected(this.props.bleDevice.id, [])
+				.then((isConnected) => {
+					if (isConnected) {
+						console.log('Connected');
+						this.props.changeDeviceState(this.props.bleDevice.id, ble.DEVICE_STATE_CONNECTED);
+					} else {
+						console.log('Disconnected');
+						this.props.changeDeviceState(this.props.bleDevice.id, ble.DEVICE_STATE_DISCONNECTED);
+					}
+				});
+		}
+
+		if (!this.props.scanning && this.props.bleState === ble.DEVICE_STATE_DISCONNECTED) {
+			this.props.startScan();
+		}
 	}
 
 	handleDiscoverPeripheral(device) {
@@ -107,6 +138,7 @@ class BleComponent extends Component {
 		if (device.id === this.state.deviceID) {
 			this.props.changeDeviceState(device.id, ble.DEVICE_STATE_CONNECT);
 			this.props.deviceFound(device);
+			AsyncStorage.setItem(BLE_DEVICE_KEY, JSON.stringify(device));
 		}
 	}
 
