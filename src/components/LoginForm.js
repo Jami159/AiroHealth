@@ -47,20 +47,28 @@ class LoginForm extends Component {
       isLoggedIn: false,
     };
 
-    AWSCognitoCredentials.identityChanged = function (Previous, Current) {
-      console.log('PreviousID:', Previous);
-      console.log('CurrentID:', Current);
+    AWSCognitoCredentials.identityChanged = (Previous, Current) => {
+			this.identityChanged(Previous, Current);
     };
 
-    AWSCognitoCredentials.getLogins = function () {
-      if (supplyLogins) {
-        var map = {};
-        map[AWSCognitoCredentials.RNC_FACEBOOK_PROVIDER] = fbookToken;
-        return map;
-      } else {
-        return '';
-      }
+    AWSCognitoCredentials.getLogins = () => {
+      this.getLogins();
     };
+	}
+
+	identityChanged(Previous, Current) {
+		console.log('PreviousID:', Previous);
+		console.log('CurrentID:', Current);
+	}
+
+	getLogins() {
+		if (supplyLogins) {
+			var map = {};
+			map[AWSCognitoCredentials.RNC_FACEBOOK_PROVIDER] = fbookToken;
+			return map;
+		} else {
+			return '';
+		}
 	}
 
 	async getCredAndID() {

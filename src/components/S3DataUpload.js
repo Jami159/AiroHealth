@@ -37,28 +37,29 @@ class S3DataUpload extends Component {
 
     AWSCognitoCredentials.initWithOptions({ region: region, identity_pool_id: identity_pool_id });
 
-    AWSS3TransferUtility.progressEvent = function (requestid, completedUnits, totalUnits, fractionCompleted, type) {
-      /*this.setState({
-        requestid: requestid,
-        type: type,
-        completedUnits: completedUnits,
-        totalUnits: totalUnits,
-        fractionCompleted: fractionCompleted,
-      });*/
-      console.log({
-        'requestid': requestid,
-        'type':type,
-        'completedUnits':completedUnits,
-        'totalUnits':totalUnits,
-        'fractionCompleted':fractionCompleted,
-      });
+    AWSS3TransferUtility.progressEvent = (requestid, completedUnits, totalUnits, fractionCompleted, type) => {
+			this.progressEvent(requestid, completedUnits, totalUnits, fractionCompleted, type);
     };
 
-    AWSS3TransferUtility.completionHandlerEvent = function (requestid, error, request) {
-      console.log('requestID:', requestid);
-      console.log('error:', JSON.stringify(error));
-      console.log('request:', JSON.stringify(request));
+    AWSS3TransferUtility.completionHandlerEvent = (requestid, error, request) => {
+			this.completionHandlerEvent(requestid, error, request);
     };
+	}
+
+	progressEvent(requestid, completedUnits, totalUnits, fractionCompleted, type) {
+		this.setState({
+			requestid: requestid,
+			type: type,
+			completedUnits: completedUnits,
+			totalUnits: totalUnits,
+			fractionCompleted: fractionCompleted,
+		});
+	}
+
+	completionHandlerEvent(requestid, error, request) {
+		console.log('requestID:', requestid);
+		console.log('error:', JSON.stringify(error));
+		console.log('request:', JSON.stringify(request));
 	}
 
 	async uploadObject() {
