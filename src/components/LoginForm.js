@@ -19,6 +19,7 @@ import {
 	Button,
 	Spinner,
 } from './common';
+import S3DataUpload from './S3DataUpload';
 
 var fbookToken = '';
 var supplyLogins = false;
@@ -170,6 +171,7 @@ class LoginForm extends Component {
 						}
 					/>
 				</View>
+				<S3DataUpload />
 			</Card>
 		);
 	}
