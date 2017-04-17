@@ -310,7 +310,7 @@ class BleComponent extends Component {
 						nextProps.changeDeviceState(nextProps.selectedDeviceId, ble.DEVICE_STATE_DISCONNECTED);
 					})
 					.catch((error) => {
-						console.error(error);
+						console.log(error);
 						nextProps.changeDeviceState(nextProps.selectedDeviceId, ble.DEVICE_STATE_DISCONNECTED);
 					});
 				console.log('Disconnecting');
@@ -334,7 +334,7 @@ class BleComponent extends Component {
 							});
 					})
 					.catch((error) => {
-						console.error(error);
+						console.log(error);
 						nextProps.changeDeviceState(nextProps.selectedDeviceId, ble.DEVICE_STATE_DISCONNECTED);
 					});
 				console.log('Connecting');
@@ -363,7 +363,7 @@ class BleComponent extends Component {
 				console.log(this.props.stressData);
 			}
 		} catch (error) {
-			console.error(error);
+			console.log(error);
 		}
 	}
 
@@ -387,7 +387,7 @@ class BleComponent extends Component {
 				console.log(this.props.stepsData);
 			}
 		} catch (error) {
-			console.error(error);
+			console.log(error);
 		}
 	}
 
