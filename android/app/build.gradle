@@ -84,7 +84,16 @@ def enableProguardInReleaseBuilds = false
 
 android {
     compileSdkVersion 23
-    buildToolsVersion "23.0.1"
+    buildToolsVersion "23.0.2"
+
+    //========================================//
+    /*
+    Sketchy solution for app compilation error
+    */
+    dexOptions {
+        jumboMode true
+    }
+    //========================================//
 
     defaultConfig {
         applicationId "com.airohealth"
