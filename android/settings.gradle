@@ -1,0 +1,25 @@
+rootProject.name = 'AiroHealth'
+include ':aws-sdk-react-native-transfer-utility'
+project(':aws-sdk-react-native-transfer-utility').projectDir = new File(rootProject.projectDir, '../node_modules/aws-sdk-react-native-transfer-utility/android')
+include ':aws-sdk-react-native-sns'
+project(':aws-sdk-react-native-sns').projectDir = new File(rootProject.projectDir, '../node_modules/aws-sdk-react-native-sns/android')
+include ':aws-sdk-react-native-lambda'
+project(':aws-sdk-react-native-lambda').projectDir = new File(rootProject.projectDir, '../node_modules/aws-sdk-react-native-lambda/android')
+include ':aws-sdk-react-native-dynamodb'
+project(':aws-sdk-react-native-dynamodb').projectDir = new File(rootProject.projectDir, '../node_modules/aws-sdk-react-native-dynamodb/android')
+include ':aws-sdk-react-native-core'
+project(':aws-sdk-react-native-core').projectDir = new File(rootProject.projectDir, '../node_modules/aws-sdk-react-native-core/android')
+include ':react-native-zip-archive'
+project(':react-native-zip-archive').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-zip-archive/android')
+include ':react-native-push-notification'
+project(':react-native-push-notification').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-push-notification/android')
+include ':react-native-fetch-blob'
+project(':react-native-fetch-blob').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-fetch-blob/android')
+include ':react-native-fbsdk'
+project(':react-native-fbsdk').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-fbsdk/android')
+include ':react-native-ble-manager'
+project(':react-native-ble-manager').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-ble-manager/android')
+include ':react-native-vector-icons'
+project(':react-native-vector-icons').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-vector-icons/android')
+
+include ':app'

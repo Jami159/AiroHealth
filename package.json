@@ -1,0 +1,49 @@
+{
+  "name": "AiroHealth",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "jest"
+  },
+  "dependencies": {
+    "art": "^0.10.1",
+    "aws-sdk-react-native-core": "..\\dependencies\\aws-sdk-react-native-core-0.0.2.tgz",
+    "aws-sdk-react-native-dynamodb": "..\\dependencies\\aws-sdk-react-native-dynamodb-0.0.1.tgz",
+    "aws-sdk-react-native-lambda": "..\\dependencies\\aws-sdk-react-native-lambda-0.0.1.tgz",
+    "aws-sdk-react-native-sns": "..\\dependencies\\aws-sdk-react-native-sns-0.0.1.tgz",
+    "aws-sdk-react-native-transfer-utility": "..\\dependencies\\aws-sdk-react-native-transfer-utility-0.0.1.tgz",
+    "d3": "^4.8.0",
+    "d3-array": "^1.2.0",
+    "d3-scale": "^1.0.5",
+    "d3-shape": "^1.0.6",
+    "lodash": "^4.17.4",
+    "native-base": "^2.1.2",
+    "react": "16.0.0-alpha.6",
+    "react-native": "0.43.3",
+    "react-native-ble-manager": "^3.2.0",
+    "react-native-drawer": "^2.3.0",
+    "react-native-fbsdk": "^0.5.0",
+    "react-native-fetch-blob": "^0.10.4",
+    "react-native-push-notification": "^2.2.1",
+    "react-native-router-flux": "^3.38.0",
+    "react-native-scrollable-tab-view": "^0.7.4",
+    "react-native-vector-icons": "^4.0.1",
+    "react-native-zip-archive": "^1.1.1",
+    "react-redux": "^5.0.4",
+    "redux": "^3.6.0",
+    "redux-logger": "^3.0.1",
+    "redux-thunk": "^2.2.0"
+  },
+  "devDependencies": {
+    "babel-jest": "19.0.0",
+    "babel-preset-react-native": "1.9.1",
+    "eslint-config-rallycoding": "^3.2.0",
+    "flow-bin": "^0.40.0",
+    "jest": "19.0.2",
+    "react-test-renderer": "16.0.0-alpha.6"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}
