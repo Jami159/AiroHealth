@@ -5,14 +5,13 @@ import {
 	Actions,
 } from 'react-native-router-flux';
 import GoalApp from './goalApp';
-import LoginForm from './components/LoginForm'
+import Home from './components/Home';
 
 const RouterComponent = () => {
 	return (
 		<Router hideNavBar={true}>
-			<Scene key='home' componenet={} title='Home' />
+			<Scene key='home' componenet={Home} title='Home' initial />
 			<Scene key='goal' component={GoalApp} title='Goal' />
-			<Scene key='login' component = {LoginForm} title='Login'/>
 		</Router>
 	);
 };
