@@ -12,7 +12,7 @@ import reducers from './reducers';
 import Router from './Router';
 import BleComponent from './components/BleComponent';
 import ErrorComponent from './components/ErrorComponent';
-import MyDrawer from './components/common/MyDrawer';
+import SideDrawer from './components/common/SideDrawer';
 
 class Airo extends Component {
 	render() {
@@ -22,7 +22,7 @@ class Airo extends Component {
 			<Provider store={store}>
 				<View style={{ flex: 1 }}>
 					<ErrorComponent />
-					<Router key='root' />
+					<Router />
 					<BleComponent />
 				</View>
 			</Provider>

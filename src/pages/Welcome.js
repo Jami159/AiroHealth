@@ -6,9 +6,9 @@ import ToolBar from '../components/common/ToolBar';
 
 export default class Welcome extends Component{
     render(){
+        console.log("HELLO WORLD!!!HAHAHAHAH")
         return(
             <View style={{flex:1,}}>
-                <ToolBar title='Home'/>
                 <View style={styles.container}>
                     <Text style={styles.welcome}>Welcome To</Text>
                     <Text style={styles.airo}>Airo</Text>

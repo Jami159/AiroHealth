@@ -1,35 +1,63 @@
 import React, { Component } from 'react';
 import { View, TouchableHighlight, Text } from 'react-native';
 import { Actions } from 'react-native-router-flux';
-import {Icon} from 'native-base';
+import {Icon, Button} from 'native-base';
+
+
+/*
+const SideDrawerContent = (props, context) => {
+	return (
+		<View>
+			<Button onPress={()=>{Actions.home();}}>
+				<View style={{flexDirection:'row'}}>
+					<Icon name='home' />
+					<Text>Home</Text>
+				</View>
+			</Button>
+			<Button onPress={()=>{Actions.goal();}}>
+				<View style={{flexDirection:'row'}}>
+					<Icon name='star' />
+					<Text>Goals</Text>
+				</View>
+			</Button>
+			<Button onPress={()=>{Actions.progress();}}>
+				<View style={{flexDirection:'row'}}>
+					<Icon name='bug' />
+					<Text>Progress</Text>
+				</View>
+			</Button>
+		</View>
+	);
+}
+*/
 
 export default class SideDrawerContent extends Component {
-
+	setParentState(args){
+	    this.props.setParentState(args)
+	}
 	render() {
-		const { drawer } = this.context
 		return (
 			<View>
                 <View>
-                    <TouchableHighlight onPress={() => { drawer.close(); Actions.Home.call() }}>
+                    <TouchableHighlight onPress={() => { this.props.closeDrawer(); Actions.Home.call() }}>
 						<View style={{flexDirection:'row'}}>
 							<Icon name='home' />
 							<Text>Home</Text>
 						</View>
-
                     </TouchableHighlight>
                 </View>
                 <View>
-                    <TouchableHighlight onPress={() => { drawer.close(); Actions.Goal.call() }}>
+                    <TouchableHighlight onPress={() => { this.props.closeDrawer(); Actions.Goal.call() }}>
 						<View style={{flexDirection:'row'}}>
-							<Icon name='star-outlined' />
+							<Icon name='star' />
 							<Text>Goals</Text>
 						</View>
                     </TouchableHighlight>
                 </View>
                 <View>
-                    <TouchableHighlight onPress={() => { drawer.close(); Actions.Progress.call() }}>
+                    <TouchableHighlight onPress={() => { this.props.closeDrawer(); Actions.Progress.call() }}>
 						<View style={{flexDirection:'row'}}>
-							<Icon name='line-graph' />
+							<Icon name='bug' />
 							<Text>Progress</Text>
 						</View>
                     </TouchableHighlight>
@@ -38,3 +66,5 @@ export default class SideDrawerContent extends Component {
 		)
 	}
 }
+
+//export default SideDrawerContent;

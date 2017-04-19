@@ -10,13 +10,15 @@ import{
 import {connect} from 'react-redux'
 import {Icon, Header, Left, Button, Right, Body, Title} from 'native-base';
 import {showModal, hideModal} from '../../actions';
+import {Actions} from 'react-native-router-flux';
 
 class ToolBar extends Component {
+
     render() {
         return (
-            <Header style={styles.toolbar}>
+            <Header style={{backgroundColor: 'powderblue', height:64,}}>
                 <Left>
-                    <Button transparent>
+                    <Button transparent onPress={()=>Actions.pop()}>
                         <Icon name='arrow-back' style={{color:'#fff', fontSize: 20}}/>
                     </Button>
                 </Left>
