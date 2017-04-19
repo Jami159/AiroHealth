@@ -26,7 +26,6 @@ import {
 } from './ParseDataHelper';
 
 var BLE_DEVICE_KEY = '@bleDevice:key';
-
 class BleComponent extends Component {
 	constructor() {
 		super();
@@ -65,7 +64,7 @@ class BleComponent extends Component {
 
 	componentDidMount() {
 		if (Platform.OS === 'android') {
-			this.setState({ deviceID: 'A0:E6:F8:D1:AF:81' });
+			this.setState({ deviceID: 'A0:E6:F8:D1:C5:83' }); // Charles
 			//this.setState({ deviceID: 'A0:E6:F8:D1:BD:07' }); //my watch
 		} else if (Platform.OS === 'ios') {
 			this.setState({ deviceID: '760BEE80-3BAB-4389-814A-91816FF2DB9B' });
@@ -288,6 +287,7 @@ class BleComponent extends Component {
 					})
 					.catch((error) => {
 						nextProps.stopScan();
+
 						console.log(error);
 					});
 			} else {
@@ -311,6 +311,7 @@ class BleComponent extends Component {
 					})
 					.catch((error) => {
 						console.log(error);
+
 						nextProps.changeDeviceState(nextProps.selectedDeviceId, ble.DEVICE_STATE_DISCONNECTED);
 					});
 				console.log('Disconnecting');
@@ -334,7 +335,9 @@ class BleComponent extends Component {
 							});
 					})
 					.catch((error) => {
+
 						console.log(error);
+
 						nextProps.changeDeviceState(nextProps.selectedDeviceId, ble.DEVICE_STATE_DISCONNECTED);
 					});
 				console.log('Connecting');
@@ -363,7 +366,9 @@ class BleComponent extends Component {
 				console.log(this.props.stressData);
 			}
 		} catch (error) {
+
 			console.log(error);
+
 		}
 	}
 
@@ -387,7 +392,9 @@ class BleComponent extends Component {
 				console.log(this.props.stepsData);
 			}
 		} catch (error) {
+
 			console.log(error);
+
 		}
 	}
 

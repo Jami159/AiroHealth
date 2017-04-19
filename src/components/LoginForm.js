@@ -20,6 +20,7 @@ import {
 	Spinner,
 } from './common';
 import S3DataUpload from './S3DataUpload';
+import {Actions} from 'react-native-router-flux';
 
 var fbookToken = '';
 var supplyLogins = false;
@@ -89,6 +90,16 @@ class LoginForm extends Component {
 			console.log('Error:', e);
 			return;
 		}
+	}
+
+	componentWillMount() {
+		AccessToken.getCurrentAccessToken()
+			.then((data) => {
+				const {accessToken} = data;
+				fbookToken = accessToken;
+				console.log(fbookToken);
+				(fbookToken !== '' ) ? Actions.home() : {}
+			});
 	}
 
 	Refresh() {
@@ -165,7 +176,7 @@ class LoginForm extends Component {
 											this.onLoginInvoked(true, accessToken.toString());
 											this.initUser(accessToken);
 											this.Refresh();
-										});
+										}).then(()=>Actions.home());
 								}
 							}
 						}

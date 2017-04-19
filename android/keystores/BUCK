@@ -1,8 +1,17 @@
 keystore(
+<<<<<<< HEAD
+    name = "debug",
+    properties = "debug.keystore.properties",
+    store = "debug.keystore",
+    visibility = [
+        "PUBLIC",
+    ],
+=======
   name = 'debug',
   store = 'debug.keystore',
   properties = 'debug.keystore.properties',
   visibility = [
     'PUBLIC',
   ],
+>>>>>>> fork/master
 )
