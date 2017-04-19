@@ -5,6 +5,10 @@
 	};
 	objectVersion = 46;
 	objects = {
+<<<<<<< HEAD
+=======
+
+>>>>>>> fork/master
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -21,8 +25,11 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
+<<<<<<< HEAD
 		1AE7E22138C1431D85A11F89 /* libRNImagePicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6037834984ED4096B6722961 /* libRNImagePicker.a */; };
 		258039E70ED8413E998FB9C6 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B1038E68CDB40728F5E3AEA /* libz.tbd */; };
+=======
+>>>>>>> fork/master
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
@@ -35,6 +42,7 @@
 		2D02E4C81E0B4AEC006451C7 /* libRCTWebSocket-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3E991DF850E9000B6D8A /* libRCTWebSocket-tvOS.a */; };
 		2D02E4C91E0B4AEC006451C7 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
 		2DCD954D1E0B4F2C00145EB5 /* AiroHealthTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* AiroHealthTests.m */; };
+<<<<<<< HEAD
 		311C74479AA546E7A7B7344B /* libTransferUtility.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0193309FEA4C4FD4AB3AB482 /* libTransferUtility.a */; };
 		360CF9FF961B465F836081D0 /* libLambda.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F4F1121B797D432B9651F36A /* libLambda.a */; };
 		45D7C1D091EF43E5AA0E5B92 /* libRNZipArchive.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7305192DFC0543EB86E37AB5 /* libRNZipArchive.a */; };
@@ -42,11 +50,15 @@
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		64EBF7A49ECC47DBA273808E /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 836F866903B74B07A3846C75 /* FBSDKShareKit.framework */; };
 		6CC392FF6DB44EF4AD1EA1DD /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA19AB3F4CFE4627AF0EF059 /* FBSDKLoginKit.framework */; };
+=======
+		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
+>>>>>>> fork/master
 		7CE9326467BE4CD2B915E4C0 /* libCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A53C72E9FD204152AA5B5C9E /* libCore.a */; };
 		8318640B1E92FBA500515AFE /* Algorithms.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8318640A1E92FBA500515AFE /* Algorithms.mm */; };
 		831864281E92FD8000515AFE /* hrv.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 831864271E92FD8000515AFE /* hrv.cpp */; };
 		8318642B1E92FD9700515AFE /* steps.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8318642A1E92FD9700515AFE /* steps.cpp */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
+<<<<<<< HEAD
 		8323CB091E982EF400F45943 /* libRCTPushNotification.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8323CB061E982ECD00F45943 /* libRCTPushNotification.a */; };
 		835800311E972E63007B81D7 /* AWSDynamoDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 835800301E972E63007B81D7 /* AWSDynamoDB.framework */; };
 		835800321E972E63007B81D7 /* AWSDynamoDB.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 835800301E972E63007B81D7 /* AWSDynamoDB.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -57,10 +69,14 @@
 		836182701E9447F000C272C3 /* libART.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 836182551E9447BB00C272C3 /* libART.a */; };
 		838754851E995BD80074F7F8 /* AWSS3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 838754841E995BD80074F7F8 /* AWSS3.framework */; };
 		838754861E995BD80074F7F8 /* AWSS3.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 838754841E995BD80074F7F8 /* AWSS3.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+=======
+		836182701E9447F000C272C3 /* libART.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 836182551E9447BB00C272C3 /* libART.a */; };
+>>>>>>> fork/master
 		8389B6AA1E75BAB5004A5E27 /* libBleManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8389B6901E75BAA5004A5E27 /* libBleManager.a */; };
 		83E55C021E772AE300E6573E /* libBleManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8389B6901E75BAA5004A5E27 /* libBleManager.a */; };
 		83FD85461E96DBEE0018B718 /* AWSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83FD85451E96DBEE0018B718 /* AWSCore.framework */; };
 		83FD85471E96DBEE0018B718 /* AWSCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 83FD85451E96DBEE0018B718 /* AWSCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+<<<<<<< HEAD
 		B550E21C2A8B443393B71808 /* libRNFetchBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE5DD21D36A449E3BADC162C /* libRNFetchBlob.a */; };
 		C74E79C7B6A44F408CE66B66 /* libDynamoDB.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 67483CDA209548D7B1B8CCAE /* libDynamoDB.a */; };
 		C7851A2176324A5D8F12C095 /* libSNS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D6852E0D3CC84291A2201290 /* libSNS.a */; };
@@ -76,6 +92,8 @@
 		ED307159BB504B739882DA5A /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6C3FD80E681349A9964CEA51 /* Octicons.ttf */; };
 		AF1182C7C93A4C8897C8468E /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 036CDB62857544ACA1C235B1 /* SimpleLineIcons.ttf */; };
 		45926702BF744B9DB6A90FC9 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 900A25360DCD4A988D2989B8 /* Zocial.ttf */; };
+=======
+>>>>>>> fork/master
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -268,6 +286,7 @@
 			remoteGlobalIDString = 58B5119B1A9E6C1200147676;
 			remoteInfo = RCTText;
 		};
+<<<<<<< HEAD
 		8323CB051E982ECD00F45943 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 8323CB001E982ECD00F45943 /* RCTPushNotification.xcodeproj */;
@@ -310,6 +329,8 @@
 			remoteGlobalIDString = 9350E0F11CE3B0920041D815;
 			remoteInfo = RCTFBSDK;
 		};
+=======
+>>>>>>> fork/master
 		836182541E9447BB00C272C3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 836182501E9447BB00C272C3 /* ART.xcodeproj */;
@@ -317,6 +338,7 @@
 			remoteGlobalIDString = 0CF68AC11AF0540F00FF9E5C;
 			remoteInfo = ART;
 		};
+<<<<<<< HEAD
 		836953FF1EA27FCE00DBB704 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 7A17DA9B2D224F87AADD85DF /* RNFetchBlob.xcodeproj */;
@@ -345,6 +367,8 @@
 			remoteGlobalIDString = 014A3B5C1C6CF33500B6D375;
 			remoteInfo = RNImagePicker;
 		};
+=======
+>>>>>>> fork/master
 		8389B68F1E75BAA5004A5E27 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 8389B68B1E75BAA5004A5E27 /* BleManager.xcodeproj */;
@@ -368,11 +392,15 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+<<<<<<< HEAD
 				835800691E9734AF007B81D7 /* AWSLambda.framework in Embed Frameworks */,
 				835800321E972E63007B81D7 /* AWSDynamoDB.framework in Embed Frameworks */,
 				83FD85471E96DBEE0018B718 /* AWSCore.framework in Embed Frameworks */,
 				835800A11E97371A007B81D7 /* AWSSNS.framework in Embed Frameworks */,
 				838754861E995BD80074F7F8 /* AWSS3.framework in Embed Frameworks */,
+=======
+				83FD85471E96DBEE0018B718 /* AWSCore.framework in Embed Frameworks */,
+>>>>>>> fork/master
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -389,8 +417,11 @@
 		00E356EE1AD99517003FC87E /* AiroHealthTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AiroHealthTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* AiroHealthTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AiroHealthTests.m; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		0193309FEA4C4FD4AB3AB482 /* libTransferUtility.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libTransferUtility.a; sourceTree = "<group>"; };
 		0A0C84CC74F74EE089884722 /* DynamoDB.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = DynamoDB.xcodeproj; path = "../node_modules/aws-sdk-react-native-dynamodb/ios/DynamoDB.xcodeproj"; sourceTree = "<group>"; };
+=======
+>>>>>>> fork/master
 		0AD1D02DBA664ECE89A8FC38 /* Core.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = Core.xcodeproj; path = "../node_modules/aws-sdk-react-native-core/ios/Core.xcodeproj"; sourceTree = "<group>"; };
 		139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTSettings.xcodeproj; path = "../node_modules/react-native/Libraries/Settings/RCTSettings.xcodeproj"; sourceTree = "<group>"; };
 		139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTWebSocket.xcodeproj; path = "../node_modules/react-native/Libraries/WebSocket/RCTWebSocket.xcodeproj"; sourceTree = "<group>"; };
@@ -402,6 +433,7 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = AiroHealth/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = AiroHealth/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		28410D8DB3E940D28F1D5C92 /* SNS.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = SNS.xcodeproj; path = "../node_modules/aws-sdk-react-native-sns/ios/SNS.xcodeproj"; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* AiroHealth-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AiroHealth-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* AiroHealth-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AiroHealth-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -416,6 +448,12 @@
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		7A17DA9B2D224F87AADD85DF /* RNFetchBlob.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNFetchBlob.xcodeproj; path = "../node_modules/react-native-fetch-blob/ios/RNFetchBlob.xcodeproj"; sourceTree = "<group>"; };
 		7F5E12A825494E19B8127E53 /* RNImagePicker.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNImagePicker.xcodeproj; path = "../node_modules/react-native-image-picker/ios/RNImagePicker.xcodeproj"; sourceTree = "<group>"; };
+=======
+		2D02E47B1E0B4A5D006451C7 /* AiroHealth-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AiroHealth-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D02E4901E0B4A5D006451C7 /* AiroHealth-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AiroHealth-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
+		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
+>>>>>>> fork/master
 		8318640A1E92FBA500515AFE /* Algorithms.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Algorithms.mm; sourceTree = "<group>"; };
 		831864261E92FC0800515AFE /* Algorithms.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Algorithms.h; sourceTree = "<group>"; };
 		831864271E92FD8000515AFE /* hrv.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = hrv.cpp; sourceTree = "<group>"; };
@@ -423,6 +461,7 @@
 		8318642A1E92FD9700515AFE /* steps.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = steps.cpp; sourceTree = "<group>"; };
 		8318642C1E92FDA100515AFE /* steps.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = steps.h; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		8323CB001E982ECD00F45943 /* RCTPushNotification.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTPushNotification.xcodeproj; path = "../node_modules/react-native/Libraries/PushNotificationIOS/RCTPushNotification.xcodeproj"; sourceTree = "<group>"; };
 		8323CB0A1E98304200F45943 /* AiroHealth.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = AiroHealth.entitlements; path = AiroHealth/AiroHealth.entitlements; sourceTree = "<group>"; };
 		835800301E972E63007B81D7 /* AWSDynamoDB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSDynamoDB.framework; path = "../node_modules/aws-sdk-react-native-dynamodb/ios/Frameworks/AWSDynamoDB.framework"; sourceTree = "<group>"; };
@@ -453,6 +492,12 @@
 		6C3FD80E681349A9964CEA51 /* Octicons.ttf */ = {isa = PBXFileReference; name = "Octicons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		036CDB62857544ACA1C235B1 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; name = "SimpleLineIcons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		900A25360DCD4A988D2989B8 /* Zocial.ttf */ = {isa = PBXFileReference; name = "Zocial.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+=======
+		836182501E9447BB00C272C3 /* ART.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ART.xcodeproj; path = "../node_modules/react-native/Libraries/ART/ART.xcodeproj"; sourceTree = "<group>"; };
+		8389B68B1E75BAA5004A5E27 /* BleManager.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BleManager.xcodeproj; path = "../node_modules/react-native-ble-manager/ios/BleManager.xcodeproj"; sourceTree = "<group>"; };
+		83FD85451E96DBEE0018B718 /* AWSCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSCore.framework; path = "../node_modules/aws-sdk-react-native-core/ios/Frameworks/AWSCore.framework"; sourceTree = "<group>"; };
+		A53C72E9FD204152AA5B5C9E /* libCore.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libCore.a; sourceTree = "<group>"; };
+>>>>>>> fork/master
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -468,7 +513,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+<<<<<<< HEAD
 				8323CB091E982EF400F45943 /* libRCTPushNotification.a in Frameworks */,
+=======
+>>>>>>> fork/master
 				836182701E9447F000C272C3 /* libART.a in Frameworks */,
 				8389B6AA1E75BAB5004A5E27 /* libBleManager.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
@@ -480,6 +528,7 @@
 				00C302E91ABCBA2D00DB3ED1 /* libRCTNetwork.a in Frameworks */,
 				139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */,
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
+<<<<<<< HEAD
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				83FD85461E96DBEE0018B718 /* AWSCore.framework in Frameworks */,
@@ -501,6 +550,12 @@
 				45D7C1D091EF43E5AA0E5B92 /* libRNZipArchive.a in Frameworks */,
 				258039E70ED8413E998FB9C6 /* libz.tbd in Frameworks */,
 				41E6062991194D7199D3EE98 /* libRNVectorIcons.a in Frameworks */,
+=======
+				83FD85461E96DBEE0018B718 /* AWSCore.framework in Frameworks */,
+				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
+				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
+				7CE9326467BE4CD2B915E4C0 /* libCore.a in Frameworks */,
+>>>>>>> fork/master
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -610,7 +665,10 @@
 		13B07FAE1A68108700A75B9A /* AiroHealth */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				8323CB0A1E98304200F45943 /* AiroHealth.entitlements */,
+=======
+>>>>>>> fork/master
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -643,6 +701,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+<<<<<<< HEAD
 		49FA3AB4A053471E9CD4D1B7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -651,6 +710,8 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+=======
+>>>>>>> fork/master
 		5E91572E1DD0AC6500FF2AA8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -672,7 +733,10 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				8323CB001E982ECD00F45943 /* RCTPushNotification.xcodeproj */,
+=======
+>>>>>>> fork/master
 				836182501E9447BB00C272C3 /* ART.xcodeproj */,
 				8389B68B1E75BAA5004A5E27 /* BleManager.xcodeproj */,
 				5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */,
@@ -687,6 +751,7 @@
 				00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */,
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
 				0AD1D02DBA664ECE89A8FC38 /* Core.xcodeproj */,
+<<<<<<< HEAD
 				49D7616893B94763AEA4BCB1 /* RCTFBSDK.xcodeproj */,
 				0A0C84CC74F74EE089884722 /* DynamoDB.xcodeproj */,
 				8C3508CF254145D2B1D0FCFB /* Lambda.xcodeproj */,
@@ -696,6 +761,8 @@
 				7A17DA9B2D224F87AADD85DF /* RNFetchBlob.xcodeproj */,
 				D9AB10FF1F34423388205627 /* RNZipArchive.xcodeproj */,
 				0680E4C28DED45F886FB643C /* RNVectorIcons.xcodeproj */,
+=======
+>>>>>>> fork/master
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -709,6 +776,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+<<<<<<< HEAD
 		8323CB011E982ECD00F45943 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -750,6 +818,8 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+=======
+>>>>>>> fork/master
 		836182511E9447BB00C272C3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -758,6 +828,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+<<<<<<< HEAD
 		836953DB1EA27FCE00DBB704 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -790,6 +861,8 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+=======
+>>>>>>> fork/master
 		8389B68C1E75BAA5004A5E27 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -801,17 +874,23 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				838754841E995BD80074F7F8 /* AWSS3.framework */,
 				8358009F1E97371A007B81D7 /* AWSSNS.framework */,
 				835800671E9734AF007B81D7 /* AWSLambda.framework */,
 				835800301E972E63007B81D7 /* AWSDynamoDB.framework */,
+=======
+>>>>>>> fork/master
 				83FD85451E96DBEE0018B718 /* AWSCore.framework */,
 				13B07FAE1A68108700A75B9A /* AiroHealth */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* AiroHealthTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
+<<<<<<< HEAD
 				49FA3AB4A053471E9CD4D1B7 /* Frameworks */,
 				5EE0571D5E7E4C17A456721A /* Resources */,
+=======
+>>>>>>> fork/master
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -836,6 +915,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+<<<<<<< HEAD
 		5EE0571D5E7E4C17A456721A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -854,6 +934,8 @@
 			path = "";
 			sourceTree = "<group>";
 		};
+=======
+>>>>>>> fork/master
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -947,11 +1029,14 @@
 					};
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = M9KVQB5P64;
+<<<<<<< HEAD
 						SystemCapabilities = {
 							com.apple.Push = {
 								enabled = 1;
 							};
 						};
+=======
+>>>>>>> fork/master
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -991,6 +1076,7 @@
 					ProjectRef = 0AD1D02DBA664ECE89A8FC38 /* Core.xcodeproj */;
 				},
 				{
+<<<<<<< HEAD
 					ProductGroup = 8358000E1E972E23007B81D7 /* Products */;
 					ProjectRef = 0A0C84CC74F74EE089884722 /* DynamoDB.xcodeproj */;
 				},
@@ -999,6 +1085,8 @@
 					ProjectRef = 8C3508CF254145D2B1D0FCFB /* Lambda.xcodeproj */;
 				},
 				{
+=======
+>>>>>>> fork/master
 					ProductGroup = 00C302A81ABCB8CE00DB3ED1 /* Products */;
 					ProjectRef = 00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */;
 				},
@@ -1007,10 +1095,13 @@
 					ProjectRef = 5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */;
 				},
 				{
+<<<<<<< HEAD
 					ProductGroup = 8358FFB21E97096A007B81D7 /* Products */;
 					ProjectRef = 49D7616893B94763AEA4BCB1 /* RCTFBSDK.xcodeproj */;
 				},
 				{
+=======
+>>>>>>> fork/master
 					ProductGroup = 00C302B61ABCB90400DB3ED1 /* Products */;
 					ProjectRef = 00C302B51ABCB90400DB3ED1 /* RCTGeolocation.xcodeproj */;
 				},
@@ -1027,10 +1118,13 @@
 					ProjectRef = 00C302D31ABCB9D200DB3ED1 /* RCTNetwork.xcodeproj */;
 				},
 				{
+<<<<<<< HEAD
 					ProductGroup = 8323CB011E982ECD00F45943 /* Products */;
 					ProjectRef = 8323CB001E982ECD00F45943 /* RCTPushNotification.xcodeproj */;
 				},
 				{
+=======
+>>>>>>> fork/master
 					ProductGroup = 139105B71AF99BAD00B5F7CC /* Products */;
 					ProjectRef = 139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */;
 				},
@@ -1050,6 +1144,7 @@
 					ProductGroup = 146834001AC3E56700842450 /* Products */;
 					ProjectRef = 146833FF1AC3E56700842450 /* React.xcodeproj */;
 				},
+<<<<<<< HEAD
 				{
 					ProductGroup = 836953DB1EA27FCE00DBB704 /* Products */;
 					ProjectRef = 7A17DA9B2D224F87AADD85DF /* RNFetchBlob.xcodeproj */;
@@ -1070,6 +1165,8 @@
 					ProductGroup = 8387545D1E995B9D0074F7F8 /* Products */;
 					ProjectRef = 44AA84E520254EC6A5C891AD /* TransferUtility.xcodeproj */;
 				},
+=======
+>>>>>>> fork/master
 			);
 			projectRoot = "";
 			targets = (
@@ -1257,6 +1354,7 @@
 			remoteRef = 832341B41AAA6A8300B99B32 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+<<<<<<< HEAD
 		8323CB061E982ECD00F45943 /* libRCTPushNotification.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -1299,6 +1397,8 @@
 			remoteRef = 8358FFBB1E97096A007B81D7 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+=======
+>>>>>>> fork/master
 		836182551E9447BB00C272C3 /* libART.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -1306,6 +1406,7 @@
 			remoteRef = 836182541E9447BB00C272C3 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+<<<<<<< HEAD
 		836954001EA27FCE00DBB704 /* libRNFetchBlob.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -1334,6 +1435,8 @@
 			remoteRef = 838754BF1E995F930074F7F8 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+=======
+>>>>>>> fork/master
 		8389B6901E75BAA5004A5E27 /* libBleManager.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -1364,6 +1467,7 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+<<<<<<< HEAD
 				F739462CE95744388F459484 /* Entypo.ttf in Resources */,
 				7D439F2E3E714A609226B5B6 /* EvilIcons.ttf in Resources */,
 				B150D10B6A624C0A95059D01 /* FontAwesome.ttf in Resources */,
@@ -1374,6 +1478,8 @@
 				ED307159BB504B739882DA5A /* Octicons.ttf in Resources */,
 				AF1182C7C93A4C8897C8468E /* SimpleLineIcons.ttf in Resources */,
 				45926702BF744B9DB6A90FC9 /* Zocial.ttf in Resources */,
+=======
+>>>>>>> fork/master
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1509,10 +1615,13 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = M9KVQB5P64;
+<<<<<<< HEAD
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks/",
 				);
+=======
+>>>>>>> fork/master
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -1520,6 +1629,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/aws-sdk-react-native-core/ios/Core/**",
+<<<<<<< HEAD
 					"$(SRCROOT)/../node_modules/react-native-fbsdk/ios/RCTFBSDK/**",
 					"$(SRCROOT)/../node_modules/aws-sdk-react-native-dynamodb/ios/DynamoDB/**",
 					"$(SRCROOT)/../node_modules/aws-sdk-react-native-lambda/ios/Lambda/**",
@@ -1529,6 +1639,8 @@
 					"$(SRCROOT)/../node_modules/react-native-fetch-blob/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-zip-archive/ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
+=======
+>>>>>>> fork/master
 				);
 				INFOPLIST_FILE = AiroHealthTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -1536,6 +1648,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+<<<<<<< HEAD
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1545,6 +1658,8 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+=======
+>>>>>>> fork/master
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -1561,6 +1676,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				DEVELOPMENT_TEAM = M9KVQB5P64;
+<<<<<<< HEAD
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks/",
@@ -1577,6 +1693,11 @@
 					"$(SRCROOT)/../node_modules/react-native-fetch-blob/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-zip-archive/ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
+=======
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/aws-sdk-react-native-core/ios/Core/**",
+>>>>>>> fork/master
 				);
 				INFOPLIST_FILE = AiroHealthTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -1584,6 +1705,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+<<<<<<< HEAD
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1593,6 +1715,8 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+=======
+>>>>>>> fork/master
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -1607,6 +1731,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+<<<<<<< HEAD
 				CODE_SIGN_ENTITLEMENTS = AiroHealth/AiroHealth.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
@@ -1635,12 +1760,27 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
+=======
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = NO;
+				DEVELOPMENT_TEAM = M9KVQB5P64;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/aws-sdk-react-native-core/ios/Core/**",
+				);
+				INFOPLIST_FILE = AiroHealth/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+>>>>>>> fork/master
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
+<<<<<<< HEAD
 				PRODUCT_BUNDLE_IDENTIFIER = airo.final;
+=======
+				PRODUCT_BUNDLE_IDENTIFIER = aljami.airo.app.AiroHealth;
+>>>>>>> fork/master
 				PRODUCT_NAME = AiroHealth;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -1650,6 +1790,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+<<<<<<< HEAD
 				CODE_SIGN_ENTITLEMENTS = AiroHealth/AiroHealth.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = M9KVQB5P64;
@@ -1677,12 +1818,26 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
+=======
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = M9KVQB5P64;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/aws-sdk-react-native-core/ios/Core/**",
+				);
+				INFOPLIST_FILE = AiroHealth/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+>>>>>>> fork/master
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
+<<<<<<< HEAD
 				PRODUCT_BUNDLE_IDENTIFIER = airo.final;
+=======
+				PRODUCT_BUNDLE_IDENTIFIER = aljami.airo.app.AiroHealth;
+>>>>>>> fork/master
 				PRODUCT_NAME = AiroHealth;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -1700,11 +1855,15 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = M9KVQB5P64;
 				ENABLE_TESTABILITY = YES;
+<<<<<<< HEAD
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Frameworks/";
+=======
+>>>>>>> fork/master
 				GCC_NO_COMMON_BLOCKS = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/aws-sdk-react-native-core/ios/Core/**",
+<<<<<<< HEAD
 					"$(SRCROOT)/../node_modules/react-native-fbsdk/ios/RCTFBSDK/**",
 					"$(SRCROOT)/../node_modules/aws-sdk-react-native-dynamodb/ios/DynamoDB/**",
 					"$(SRCROOT)/../node_modules/aws-sdk-react-native-lambda/ios/Lambda/**",
@@ -1714,12 +1873,15 @@
 					"$(SRCROOT)/../node_modules/react-native-fetch-blob/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-zip-archive/ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
+=======
+>>>>>>> fork/master
 				);
 				INFOPLIST_FILE = "AiroHealth-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+<<<<<<< HEAD
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1729,6 +1891,8 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+=======
+>>>>>>> fork/master
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -1754,11 +1918,15 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = M9KVQB5P64;
+<<<<<<< HEAD
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Frameworks/";
+=======
+>>>>>>> fork/master
 				GCC_NO_COMMON_BLOCKS = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/aws-sdk-react-native-core/ios/Core/**",
+<<<<<<< HEAD
 					"$(SRCROOT)/../node_modules/react-native-fbsdk/ios/RCTFBSDK/**",
 					"$(SRCROOT)/../node_modules/aws-sdk-react-native-dynamodb/ios/DynamoDB/**",
 					"$(SRCROOT)/../node_modules/aws-sdk-react-native-lambda/ios/Lambda/**",
@@ -1768,12 +1936,15 @@
 					"$(SRCROOT)/../node_modules/react-native-fetch-blob/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-zip-archive/ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
+=======
+>>>>>>> fork/master
 				);
 				INFOPLIST_FILE = "AiroHealth-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+<<<<<<< HEAD
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1783,6 +1954,8 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+=======
+>>>>>>> fork/master
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -1807,13 +1980,17 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = M9KVQB5P64;
 				ENABLE_TESTABILITY = YES;
+<<<<<<< HEAD
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Frameworks/";
+=======
+>>>>>>> fork/master
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "AiroHealth-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+<<<<<<< HEAD
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1823,6 +2000,8 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+=======
+>>>>>>> fork/master
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.AiroHealth-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1843,13 +2022,17 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = M9KVQB5P64;
+<<<<<<< HEAD
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Frameworks/";
+=======
+>>>>>>> fork/master
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "AiroHealth-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+<<<<<<< HEAD
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1859,6 +2042,8 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+=======
+>>>>>>> fork/master
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.AiroHealth-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1888,6 +2073,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+<<<<<<< HEAD
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks/",
@@ -1897,6 +2083,9 @@
 					"$(SRCROOT)/../node_modules/aws-sdk-react-native-sns/ios/Frameworks",
 					"$(SRCROOT)/../node_modules/aws-sdk-react-native-transfer-utility/ios/Frameworks",
 				);
+=======
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../node_modules/aws-sdk-react-native-core/ios/Frameworks";
+>>>>>>> fork/master
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1939,6 +2128,7 @@
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+<<<<<<< HEAD
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks/",
@@ -1948,6 +2138,9 @@
 					"$(SRCROOT)/../node_modules/aws-sdk-react-native-sns/ios/Frameworks",
 					"$(SRCROOT)/../node_modules/aws-sdk-react-native-transfer-utility/ios/Frameworks",
 				);
+=======
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../node_modules/aws-sdk-react-native-core/ios/Frameworks";
+>>>>>>> fork/master
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;

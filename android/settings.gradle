@@ -1,4 +1,5 @@
 rootProject.name = 'AiroHealth'
+<<<<<<< HEAD
 include ':aws-sdk-react-native-transfer-utility'
 project(':aws-sdk-react-native-transfer-utility').projectDir = new File(rootProject.projectDir, '../node_modules/aws-sdk-react-native-transfer-utility/android')
 include ':aws-sdk-react-native-sns'
@@ -23,3 +24,13 @@ include ':react-native-vector-icons'
 project(':react-native-vector-icons').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-vector-icons/android')
 
 include ':app'
+=======
+
+include ':aws-sdk-react-native-core'
+project(':aws-sdk-react-native-core').projectDir = new File(rootProject.projectDir, '../node_modules/aws-sdk-react-native-core/android')
+
+include ':react-native-ble-manager'
+project(':react-native-ble-manager').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-ble-manager/android')
+
+include ':app'
+>>>>>>> fork/master

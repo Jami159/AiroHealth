@@ -3,7 +3,10 @@ import {
 	NativeAppEventEmitter,
 	Platform,
 	PermissionsAndroid,
+<<<<<<< HEAD
 	AsyncStorage,
+=======
+>>>>>>> fork/master
 } from 'react-native';
 import { connect } from 'react-redux';
 import BleManager from 'react-native-ble-manager';
@@ -25,8 +28,11 @@ import {
 	byteToAccl,
 } from './ParseDataHelper';
 
+<<<<<<< HEAD
 var BLE_DEVICE_KEY = '@bleDevice:key';
 
+=======
+>>>>>>> fork/master
 class BleComponent extends Component {
 	constructor() {
 		super();
@@ -65,11 +71,19 @@ class BleComponent extends Component {
 
 	componentDidMount() {
 		if (Platform.OS === 'android') {
+<<<<<<< HEAD
 			this.setState({ deviceID: 'A0:E6:F8:D1:C5:83' });
 			//this.setState({ deviceID: 'A0:E6:F8:D1:BD:07' }); //my watch
 		} else if (Platform.OS === 'ios') {
 			this.setState({ deviceID: '760BEE80-3BAB-4389-814A-91816FF2DB9B' });
 			//this.setState({ deviceID: '44F3F0B6-3522-4E4B-B2BD-2F477B6BCC0E' }); //my watch
+=======
+			//this.setState({ deviceID: 'A0:E6:F8:D1:AF:81' });
+			this.setState({ deviceID: 'A0:E6:F8:D1:BD:07' }); //my watch
+		} else if (Platform.OS === 'ios') {
+			//this.setState({ deviceID: '760BEE80-3BAB-4389-814A-91816FF2DB9B' });
+			this.setState({ deviceID: '44F3F0B6-3522-4E4B-B2BD-2F477B6BCC0E' }); //my watch
+>>>>>>> fork/master
 		}
 
 		BleManager.start({ showAlert: false });
@@ -102,6 +116,7 @@ class BleComponent extends Component {
 					}
 				});
     }
+<<<<<<< HEAD
 
     this.initializeBLE();
 	}
@@ -130,6 +145,8 @@ class BleComponent extends Component {
 		if (!this.props.scanning && this.props.bleState === ble.DEVICE_STATE_DISCONNECTED) {
 			this.props.startScan();
 		}
+=======
+>>>>>>> fork/master
 	}
 
 	handleDiscoverPeripheral(device) {
@@ -138,8 +155,11 @@ class BleComponent extends Component {
 		if (device.id === this.state.deviceID) {
 			this.props.changeDeviceState(device.id, ble.DEVICE_STATE_CONNECT);
 			this.props.deviceFound(device);
+<<<<<<< HEAD
 
 			AsyncStorage.setItem(BLE_DEVICE_KEY, JSON.stringify(device));
+=======
+>>>>>>> fork/master
 		}
 	}
 
@@ -151,7 +171,10 @@ class BleComponent extends Component {
 		this.data.bigPackTime = -1;
 
 		this.props.changeDeviceState(device.peripheral, ble.DEVICE_STATE_DISCONNECTED);
+<<<<<<< HEAD
 		this.props.startScan();
+=======
+>>>>>>> fork/master
 	}
 
 	handleCharacteristicValueUpdate(args) {
@@ -222,9 +245,15 @@ class BleComponent extends Component {
           if (this.data.sampleQueue.length === 6)  {
             if ((this.data.smallPackTime >= 0) && (this.data.bigPackTime >= 0)) {
               var result = byteToAccl(this.data.sampleQueue);
+<<<<<<< HEAD
               var acclData = [time_now].concat(result);
 
               this.data.acclSamples = this.data.acclSamples.concat([acclData]);
+=======
+              var data = [time_now].concat(result);
+
+              this.data.acclSamples = this.data.acclSamples.concat([data]);
+>>>>>>> fork/master
               this.data.numAccl++;
             }
 
@@ -239,9 +268,15 @@ class BleComponent extends Component {
           }
         } else {
           if ((this.data.smallPackTime >= 0) && (this.data.bigPackTime >= 0)) {
+<<<<<<< HEAD
             var ppgData = [time_now, byteToInt(this.data.sampleQueue, true)];
 
             this.data.ppgSamples = this.data.ppgSamples.concat([ppgData]);
+=======
+            var data = [time_now, byteToInt(this.data.sampleQueue, true)];
+
+            this.data.ppgSamples = this.data.ppgSamples.concat([data]);
+>>>>>>> fork/master
             this.data.numPPG++;
           }
 
@@ -282,12 +317,17 @@ class BleComponent extends Component {
 		//Handle Scanning
 		if (nextProps.scanning !== this.props.scanning) {
 			if (nextProps.scanning) {
+<<<<<<< HEAD
 				BleManager.scan(['FFF0'], 18000, false)
+=======
+				BleManager.scan([], 30, true)
+>>>>>>> fork/master
 					.then(() => {
 						console.log('Scan Started');
 					})
 					.catch((error) => {
 						nextProps.stopScan();
+<<<<<<< HEAD
 						console.log(error);
 					});
 			} else {
@@ -298,6 +338,12 @@ class BleComponent extends Component {
 					.catch((error) => {
 						console.log(error);
 					});
+=======
+						console.error(error);
+					});
+			} else {
+				BleManager.stopScan();
+>>>>>>> fork/master
 			}
 		}
 
@@ -310,7 +356,11 @@ class BleComponent extends Component {
 						nextProps.changeDeviceState(nextProps.selectedDeviceId, ble.DEVICE_STATE_DISCONNECTED);
 					})
 					.catch((error) => {
+<<<<<<< HEAD
 						console.log(error);
+=======
+						console.error(error);
+>>>>>>> fork/master
 						nextProps.changeDeviceState(nextProps.selectedDeviceId, ble.DEVICE_STATE_DISCONNECTED);
 					});
 				console.log('Disconnecting');
@@ -334,7 +384,11 @@ class BleComponent extends Component {
 							});
 					})
 					.catch((error) => {
+<<<<<<< HEAD
 						console.log(error);
+=======
+						console.error(error);
+>>>>>>> fork/master
 						nextProps.changeDeviceState(nextProps.selectedDeviceId, ble.DEVICE_STATE_DISCONNECTED);
 					});
 				console.log('Connecting');
@@ -363,7 +417,11 @@ class BleComponent extends Component {
 				console.log(this.props.stressData);
 			}
 		} catch (error) {
+<<<<<<< HEAD
 			console.log(error);
+=======
+			console.error(error);
+>>>>>>> fork/master
 		}
 	}
 
@@ -387,7 +445,11 @@ class BleComponent extends Component {
 				console.log(this.props.stepsData);
 			}
 		} catch (error) {
+<<<<<<< HEAD
 			console.log(error);
+=======
+			console.error(error);
+>>>>>>> fork/master
 		}
 	}
 

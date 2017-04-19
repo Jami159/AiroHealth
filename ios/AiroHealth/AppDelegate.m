@@ -11,6 +11,7 @@
 
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
+<<<<<<< HEAD
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import "RCTPushNotificationManager.h"
 
@@ -20,6 +21,11 @@
   [FBSDKAppEvents activateApp];
 }
 
+=======
+
+@implementation AppDelegate
+
+>>>>>>> fork/master
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
   NSURL *jsCodeLocation;
@@ -37,6 +43,7 @@
   rootViewController.view = rootView;
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
+<<<<<<< HEAD
   
   [[FBSDKApplicationDelegate sharedInstance] application:application
                            didFinishLaunchingWithOptions:launchOptions];
@@ -81,4 +88,9 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
   [RCTPushNotificationManager didReceiveLocalNotification:notification];
 }
 
+=======
+  return YES;
+}
+
+>>>>>>> fork/master
 @end

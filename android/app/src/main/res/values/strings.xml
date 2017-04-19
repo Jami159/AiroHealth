@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">AiroHealth</string>
+<<<<<<< HEAD
     <string name="facebook_app_id">1286598314741818</string>
+=======
+>>>>>>> fork/master
 </resources>

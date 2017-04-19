@@ -1,7 +1,10 @@
 package com.airohealth;
 
 import com.facebook.react.ReactActivity;
+<<<<<<< HEAD
 import android.content.Intent;
+=======
+>>>>>>> fork/master
 
 public class MainActivity extends ReactActivity {
 
@@ -13,6 +16,7 @@ public class MainActivity extends ReactActivity {
     protected String getMainComponentName() {
         return "AiroHealth";
     }
+<<<<<<< HEAD
 
     @Override
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -24,4 +28,6 @@ public class MainActivity extends ReactActivity {
     public void onBackPressed() {
         moveTaskToBack(true);
     }
+=======
+>>>>>>> fork/master
 }

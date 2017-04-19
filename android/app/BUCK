@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+import re
+
+>>>>>>> fork/master
 # To learn about Buck see [Docs](https://buckbuild.com/).
 # To run your application with Buck:
 # - install Buck
@@ -9,9 +14,14 @@
 #
 
 lib_deps = []
+<<<<<<< HEAD
 
 for jarfile in glob(['libs/*.jar']):
   name = 'jars__' + jarfile[jarfile.rindex('/') + 1: jarfile.rindex('.jar')]
+=======
+for jarfile in glob(['libs/*.jar']):
+  name = 'jars__' + re.sub(r'^.*/([^/]+)\.jar$', r'\1', jarfile)
+>>>>>>> fork/master
   lib_deps.append(':' + name)
   prebuilt_jar(
     name = name,
@@ -19,7 +29,11 @@ for jarfile in glob(['libs/*.jar']):
   )
 
 for aarfile in glob(['libs/*.aar']):
+<<<<<<< HEAD
   name = 'aars__' + aarfile[aarfile.rindex('/') + 1: aarfile.rindex('.aar')]
+=======
+  name = 'aars__' + re.sub(r'^.*/([^/]+)\.aar$', r'\1', aarfile)
+>>>>>>> fork/master
   lib_deps.append(':' + name)
   android_prebuilt_aar(
     name = name,
@@ -27,6 +41,7 @@ for aarfile in glob(['libs/*.aar']):
   )
 
 android_library(
+<<<<<<< HEAD
     name = "all-libs",
     exported_deps = lib_deps,
 )
@@ -62,4 +77,41 @@ android_binary(
     deps = [
         ":app-code",
     ],
+=======
+  name = 'all-libs',
+  exported_deps = lib_deps
+)
+
+android_library(
+  name = 'app-code',
+  srcs = glob([
+    'src/main/java/**/*.java',
+  ]),
+  deps = [
+    ':all-libs',
+    ':build_config',
+    ':res',
+  ],
+)
+
+android_build_config(
+  name = 'build_config',
+  package = 'com.airohealth',
+)
+
+android_resource(
+  name = 'res',
+  res = 'src/main/res',
+  package = 'com.airohealth',
+)
+
+android_binary(
+  name = 'app',
+  package_type = 'debug',
+  manifest = 'src/main/AndroidManifest.xml',
+  keystore = '//android/keystores:debug',
+  deps = [
+    ':app-code',
+  ],
+>>>>>>> fork/master
 )
