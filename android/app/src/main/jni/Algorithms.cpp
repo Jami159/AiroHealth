@@ -59,7 +59,7 @@ JNIEXPORT jobjectArray JNICALL Java_com_airohealth_AlgorithmsModule_getStressJNI
 		double start_time = result[i][0];
 		double ppg = result[i][1];
 
-		hr_engine.newSample(ppg * (-1), start_time);
+		hr_engine.newSample(start_time, ppg * (-1));
 	}
 
 	OuterDim = hrvCount;

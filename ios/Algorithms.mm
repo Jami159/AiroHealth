@@ -49,7 +49,7 @@ RCT_REMAP_METHOD(getStress,
     double start_time = [[arr objectAtIndex:0] doubleValue];
     double ppg = [[arr objectAtIndex:1] doubleValue];
     
-    hr_engine.newSample(ppg * (-1), start_time);
+    hr_engine.newSample(start_time, ppg * (-1));
   }
   
   if (stressVals) {
