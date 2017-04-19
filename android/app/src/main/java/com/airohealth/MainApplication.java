@@ -11,6 +11,15 @@ import com.facebook.reactnative.androidsdk.FBSDKPackage;
 import android.util.Log;
 
 import com.facebook.react.ReactApplication;
+import com.rnziparchive.RNZipArchivePackage;
+import com.RNFetchBlob.RNFetchBlobPackage;
+import com.imagepicker.ImagePickerPackage;
+import com.dieam.reactnativepushnotification.ReactNativePushNotificationPackage;
+import com.amazonaws.reactnative.s3.AWSRNTransferUtilityPackage;
+import com.amazonaws.reactnative.sns.AWSRNSNSPackage;
+import com.amazonaws.reactnative.lambda.AWSRNLambdaPackage;
+import com.amazonaws.reactnative.dynamodb.AWSRNDynamoDBPackage;
+import com.facebook.reactnative.androidsdk.FBSDKPackage;
 import com.amazonaws.reactnative.core.AWSRNCorePackage;
 import com.facebook.react.ReactInstanceManager;
 >>>>>>> fork/master
@@ -36,6 +45,10 @@ import com.oblador.vectoricons.VectorIconsPackage;
 
 =======
 
+import com.facebook.FacebookSdk;
+import com.facebook.CallbackManager;
+import com.facebook.appevents.AppEventsLogger;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -54,11 +67,20 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
 <<<<<<< HEAD
+<<<<<<< HEAD
           new MainReactPackage(),
+=======
+            new MainReactPackage(),
+            new RNZipArchivePackage(),
+            new RNFetchBlobPackage(),
+            new ImagePickerPackage(),
+            new ReactNativePushNotificationPackage(),
+>>>>>>> origin/master
             new AWSRNTransferUtilityPackage(),
             new AWSRNSNSPackage(),
             new AWSRNLambdaPackage(),
             new AWSRNDynamoDBPackage(),
+<<<<<<< HEAD
             new AWSRNCorePackage(),
             new RNZipArchivePackage(),
             new ReactNativePushNotificationPackage(),
@@ -72,6 +94,12 @@ public class MainApplication extends Application implements ReactApplication {
         new MyReactPackage(),
         new BleManagerPackage()
 >>>>>>> fork/master
+=======
+            new FBSDKPackage(mCallbackManager),
+            new AWSRNCorePackage(),
+            new MyReactPackage(),
+            new BleManagerPackage()
+>>>>>>> origin/master
       );
     }
   };
@@ -87,12 +115,18 @@ public class MainApplication extends Application implements ReactApplication {
     SoLoader.init(this, /* native exopackage */ false);
   }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/master
 
   private static CallbackManager mCallbackManager = CallbackManager.Factory.create();
 
   protected static CallbackManager getCallbackManager() {
     return mCallbackManager;
   }
+<<<<<<< HEAD
 =======
 >>>>>>> fork/master
+=======
+>>>>>>> origin/master
 }

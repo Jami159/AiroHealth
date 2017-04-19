@@ -255,7 +255,26 @@ aws-sdk-react-native-core@../dependencies/aws-sdk-react-native-core-0.0.2.tgz:
   version "0.0.2"
   resolved "../dependencies/aws-sdk-react-native-core-0.0.2.tgz#5db9dc0c97ce5f729736850412c2bcd568200b9b"
 
+<<<<<<< HEAD
 >>>>>>> fork/master
+=======
+aws-sdk-react-native-dynamodb@../dependencies/aws-sdk-react-native-dynamodb-0.0.1.tgz:
+  version "0.0.1"
+  resolved "../dependencies/aws-sdk-react-native-dynamodb-0.0.1.tgz#0ddb25d8396ab0206e91cd5571497623ed9698d5"
+
+aws-sdk-react-native-lambda@../dependencies/aws-sdk-react-native-lambda-0.0.1.tgz:
+  version "0.0.1"
+  resolved "../dependencies/aws-sdk-react-native-lambda-0.0.1.tgz#531ef69a92ac2df364fb1e65cfbe114640254fb8"
+
+aws-sdk-react-native-sns@../dependencies/aws-sdk-react-native-sns-0.0.1.tgz:
+  version "0.0.1"
+  resolved "../dependencies/aws-sdk-react-native-sns-0.0.1.tgz#d6d4f7bfb40057cb425f4f0ebbbfd09f6cd6918e"
+
+aws-sdk-react-native-transfer-utility@../dependencies/aws-sdk-react-native-transfer-utility-0.0.1.tgz:
+  version "0.0.1"
+  resolved "../dependencies/aws-sdk-react-native-transfer-utility-0.0.1.tgz#e4f2048c5d882ee45add4b82ae25af8c48b8b645"
+
+>>>>>>> origin/master
 aws-sign2@~0.6.0:
   version "0.6.0"
   resolved "https://registry.yarnpkg.com/aws-sign2/-/aws-sign2-0.6.0.tgz#14342dd38dbcc94d0e5b87d763cd63612c0e794f"
@@ -1726,11 +1745,7 @@ d3-force@1.0.6:
     d3-quadtree "1"
     d3-timer "1"
 
-d3-format@1:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/d3-format/-/d3-format-1.2.0.tgz#6b480baa886885d4651dc248a8f4ac9da16db07a"
-
-d3-format@1.1.1:
+d3-format@1, d3-format@1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/d3-format/-/d3-format-1.1.1.tgz#26e094e7b0fa925d3615aa6f43b265c5ca82b46e"
 
@@ -1991,17 +2006,14 @@ diff@^3.0.0:
   resolved "https://registry.yarnpkg.com/diff/-/diff-3.2.0.tgz#c9ce393a4b7cbd0b058a725c93df299027868ff9"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 doctrine@1.3.x:
+=======
+doctrine@1.3.x, doctrine@^1.2.2:
+>>>>>>> origin/master
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/doctrine/-/doctrine-1.3.0.tgz#13e75682b55518424276f7c173783456ef913d26"
-  dependencies:
-    esutils "^2.0.2"
-    isarray "^1.0.0"
-
-doctrine@^1.2.2:
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/doctrine/-/doctrine-1.5.0.tgz#379dce730f6166f76cefa4e6707a159b02c5a6fa"
   dependencies:
     esutils "^2.0.2"
     isarray "^1.0.0"
@@ -4437,6 +4449,14 @@ react-native-experimental-navigation@0.26.x:
     clamp "^1.0.1"
     fbjs "^0.8.1"
     react-addons-pure-render-mixin "^15.0.2"
+
+react-native-fbsdk@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/react-native-fbsdk/-/react-native-fbsdk-0.5.0.tgz#3ccd67d189755df11d366b8de9acb91ea2300e6e"
+
+react-native-push-notification@^2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/react-native-push-notification/-/react-native-push-notification-2.2.1.tgz#9b392cee8f5223a1e1772c9a88c95742549fcfc3"
 
 react-native-router-flux@^3.35.0:
   version "3.38.0"

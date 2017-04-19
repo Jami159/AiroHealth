@@ -6,6 +6,8 @@ import android.content.Intent;
 =======
 >>>>>>> fork/master
 
+import android.content.Intent;
+
 public class MainActivity extends ReactActivity {
 
     /**
@@ -17,6 +19,9 @@ public class MainActivity extends ReactActivity {
         return "AiroHealth";
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/master
 
     @Override
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -28,6 +33,9 @@ public class MainActivity extends ReactActivity {
     public void onBackPressed() {
         moveTaskToBack(true);
     }
+<<<<<<< HEAD
 =======
 >>>>>>> fork/master
+=======
+>>>>>>> origin/master
 }
