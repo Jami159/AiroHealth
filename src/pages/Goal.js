@@ -3,14 +3,14 @@ import {StyleSheet, View, Modal, AsyncStorage, ScrollView, Text} from 'react-nat
 import {bindActionCreators, dispatch} from 'redux';
 import {connect} from 'react-redux';
 import ScrollableTabView, {ScrollableTabBar, DefaultTabBar} from 'react-native-scrollable-tab-view';
-import ToolBar from './components/MyGoal/toolBar';
-import GoalList from './components/MyGoal/goalList';
-import AddGoal from './components/MyGoal/addGoal';
-import Filters from './components/MyGoal/filters';
-import { hideModal, fetchGoals } from './actions';
-import reducers from './reducers';
+import ToolBar from '../components/MyGoal/toolBar';
+import GoalList from '../components/MyGoal/goalList';
+import AddGoal from '../components/MyGoal/addGoal';
+import Filters from '../components/MyGoal/filters';
+import { hideModal, fetchGoals } from '../actions';
+import reducers from '../reducers';
 
-class GoalApp extends Component {
+class Goal extends Component {
     constructor(props) {
         super(props);
     }
@@ -146,4 +146,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps,{hideModal, fetchGoals})(GoalApp);
+export default connect(mapStateToProps,{hideModal, fetchGoals})(Goal);

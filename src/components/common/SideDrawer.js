@@ -7,7 +7,7 @@ export default class SideDrawer extends Component {
     render(){
         return(
             <Drawer
-                ref={c=>this.drawer = c} /**assigning a drawer object into the class**/
+                //ref={c=>this.drawer = c} /**assigning a drawer object into the class**/
                 type='overlay'
                 content={<SideDrawerContent />}
                 tapToClose

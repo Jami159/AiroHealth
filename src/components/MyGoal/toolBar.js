@@ -14,7 +14,7 @@ import {showModal, hideModal} from '../../actions';
 class ToolBar extends Component {
     render() {
         return (
-            <Header>
+            <Header style={styles.toolbar}>
                 <Left>
                     <Button transparent>
                         <Icon name='arrow-back' style={{color:'#fff', fontSize: 20}}/>
@@ -41,7 +41,7 @@ class ToolBar extends Component {
 const styles = StyleSheet.create({
   toolbar: {
     backgroundColor: 'powderblue',
-    height:50,
+    height:64,
     // paddingTop: 30,
     // paddingBottom: 10,
     // flexDirection: 'row'
