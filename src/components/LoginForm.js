@@ -15,13 +15,6 @@ import {
 import {
 	Card,
 } from './common';
-import S3DataUpload from './S3DataUpload';
-
-var fbookToken = '';
-var supplyLogins = false;
-
-var region = 'us-east-1';
-var identity_pool_id = 'us-east-1:7cd56497-cf3c-43b7-81ad-a31b5b60a4c3';
 
 class LoginForm extends Component {
 	constructor(props) {
@@ -33,14 +26,12 @@ class LoginForm extends Component {
 		};
 
 		this.state = {
-      loginMessage: 'Log Into Facebook',
-      Authenticated: 'False',
+      Authenticated: false,
       identityID: '',
       AccessKey: '',
       SecretKey: '',
       SessionKey: '',
       Expiration: '',
-      isLoggedIn: false,
     };
 	}
 
@@ -53,10 +44,11 @@ class LoginForm extends Component {
 			.then((data) => {
 				if (data !== null) {
 					const { accessToken } = data;
-					fbookToken = accessToken.toString();
+					this.props.loginStatus(accessToken.toString());
+				} else {
+					this.props.loginStatus('');
 				}
 			});
-		this.props.loginStatus(fbookToken);
 	}
 
 	componentDidMount() {
@@ -111,18 +103,11 @@ class LoginForm extends Component {
 		});
 	}
 
-	onLoginInvoked(isLoggingIn, Accesstoken) {
-		if (isLoggingIn) {
-			fbookToken = Accesstoken;
-			supplyLogins = true;
-			AWSCognitoCredentials.initWithOptions({ region: region, identity_pool_id: identity_pool_id });
-			var map = {};
-			map[AWSCognitoCredentials.RNC_FACEBOOK_PROVIDER] = fbookToken;
-			AWSCognitoCredentials.setLogins(map); //ignored for iOS
-      return;
-		} else {
-			supplyLogins = false;
-		}
+	onLoginInvoked() {
+		var map = {};
+		map[AWSCognitoCredentials.RNC_FACEBOOK_PROVIDER] = this.props.facebookToken;
+		console.log(map);
+		AWSCognitoCredentials.setLogins(map); //ignored for iOS
 	}
 
 	initUser(token) {
@@ -140,10 +125,12 @@ class LoginForm extends Component {
 
 	ClearCred() {
     AWSCognitoCredentials.clearCredentials();
+    console.log('Credentials cleared');
   }
 
   ClearKeychain() {
     AWSCognitoCredentials.clear();
+    console.log('Keychain cleared');
   }
 
 	render() {
@@ -164,26 +151,24 @@ class LoginForm extends Component {
 									AccessToken.getCurrentAccessToken()
 										.then((data) => {
 											const { accessToken } = data;
-											this.onLoginInvoked(true, accessToken.toString());
+											this.props.loginStatus(accessToken.toString());
+											this.onLoginInvoked();
 											this.initUser(accessToken);
 											this.Refresh();
-											this.props.loginStatus(accessToken.toString());
 										});
 								}
 							}
 						}
 						onLogoutFinished={
 							() => {
-								this.onLoginInvoked(false, '');
+								this.props.loginStatus('');
 								this.ClearCred();
 								this.ClearKeychain();
-								this.Refresh();
-								this.props.loginStatus('');
+								//this.Refresh();
 							}
 						}
 					/>
 				</View>
-				<S3DataUpload />
 			</Card>
 		);
 	}

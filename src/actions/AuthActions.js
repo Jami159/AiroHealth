@@ -1,3 +1,4 @@
+import { Actions } from 'react-native-router-flux';
 import {
 	LOGIN_STATUS,
 	LOGGED_IN,
@@ -25,10 +26,12 @@ const loggedIn = (dispatch) => {
 	dispatch({
 		type: LOGGED_IN
 	});
+	Actions.main();
 };
 
 const loggedOut = (dispatch) => {
 	dispatch({
 		type: LOGGED_OUT,
 	});
+	Actions.auth({ type: 'reset' });
 };

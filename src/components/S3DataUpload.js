@@ -6,14 +6,20 @@ import {
 import { connect } from 'react-redux';
 import RNFetchBlob from 'react-native-fetch-blob';
 import { zip } from 'react-native-zip-archive';
-import {AWSCognitoCredentials} from 'aws-sdk-react-native-core';
-import {AWSS3TransferUtility} from 'aws-sdk-react-native-transfer-utility';
+import {
+	LoginButton,
+} from 'react-native-fbsdk';
+import { AWSCognitoCredentials } from 'aws-sdk-react-native-core';
+import { AWSS3TransferUtility } from 'aws-sdk-react-native-transfer-utility';
+import {
+	loginStatus,
+} from '../actions';
 import {
 	Button,
+	Card,
 } from './common';
 
 var region = 'us-east-1';
-var identity_pool_id = 'us-east-1:7cd56497-cf3c-43b7-81ad-a31b5b60a4c3';
 var s3_bucket_name = 'airo-userfiles-mobilehub-1172289525';
 
 var requestTmp = { isDownload: false, id: '' };
@@ -29,8 +35,6 @@ class S3DataUpload extends Component {
       totalUnits: '',
       fractionCompleted: '',
     };
-
-    AWSCognitoCredentials.initWithOptions({ region: region, identity_pool_id: identity_pool_id });
 
     AWSS3TransferUtility.progressEvent = (requestid, completedUnits, totalUnits, fractionCompleted, type) => {
 			this.progressEvent(requestid, completedUnits, totalUnits, fractionCompleted, type);
@@ -57,16 +61,25 @@ class S3DataUpload extends Component {
 		console.log('request:', JSON.stringify(request));
 	}
 
+	componentDidMount() {
+		AWSCognitoCredentials.identityChanged = (Previous, Current) => {
+			console.log('PreviousID:', Previous);
+			console.log('CurrentID:', Current);
+    };
+
+    AWSCognitoCredentials.getLogins = () => {
+			var map = {};
+			map[AWSCognitoCredentials.RNC_FACEBOOK_PROVIDER] = this.props.facebookToken;
+			console.log(map);
+			return map;
+    };
+	}
+
 	async uploadObject() {
 		var map = {};
 		map[AWSCognitoCredentials.RNC_FACEBOOK_PROVIDER] = this.props.facebookToken;
 		console.log(map);
 		AWSCognitoCredentials.setLogins(map); //ignored for iOS
-
-		/*var fetchedCreds = await AWSCognitoCredentials.getCredentialsAsync();
-		console.log(fetchedCreds);
-		var fetchedId = await AWSCognitoCredentials.getIdentityIDAsync();
-		console.log(fetchedId);*/
 
 		AWSS3TransferUtility.initWithOptions({ region: region });
 
@@ -76,7 +89,7 @@ class S3DataUpload extends Component {
 		await RNFetchBlob.fs.writeFile(path + '/testFile.txt', JSON.stringify(new Date(Date.now())), 'utf8')
 			.then(() => {
 				console.log('FILE WRITTEN!');
-				//console.log(path);
+				console.log(path);
 			})
 			.catch((err) => {
 				console.log(err);
@@ -131,13 +144,36 @@ class S3DataUpload extends Component {
     AWSS3TransferUtility.editEvent({ config: 'cancel', request: requestTmp.id });
   }
 
+  ClearCred() {
+    AWSCognitoCredentials.clearCredentials();
+    console.log('Credentials cleared');
+  }
+
+  ClearKeychain() {
+    AWSCognitoCredentials.clear();
+    console.log('Keychain cleared');
+  }
+
 	render() {
 		return (
-			<View style={styles.buttonStyle}>
-				<Button onPress={this.uploadObject.bind(this)}>
-					Upload to server
-				</Button>
-			</View>
+			<Card>
+				<View style={styles.buttonStyle}>
+					<Button onPress={this.uploadObject.bind(this)}>
+						Upload to server
+					</Button>
+				</View>
+				<View style={styles.buttonStyle}>
+					<LoginButton
+						onLogoutFinished={
+							() => {
+								this.props.loginStatus('');
+								this.ClearCred();
+								this.ClearKeychain();
+							}
+						}
+					/>
+				</View>
+			</Card>
 		);
 	}
 }
@@ -164,4 +200,4 @@ const mapStateToProps = (state) => {
 	};
 };
 
-export default connect(mapStateToProps, {})(S3DataUpload);
+export default connect(mapStateToProps, { loginStatus })(S3DataUpload);
