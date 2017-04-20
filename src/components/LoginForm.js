@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import {
-	Text,
 	View,
-	NativeModules,
-	NativeAppEventEmitter,
 	Alert,
 } from 'react-native';
 import { connect } from 'react-redux';
@@ -13,11 +10,10 @@ import {
 } from 'react-native-fbsdk';
 import { AWSCognitoCredentials } from 'aws-sdk-react-native-core';
 import {
+	loginStatus,
+} from '../actions';
+import {
 	Card,
-	CardSection,
-	Input,
-	Button,
-	Spinner,
 } from './common';
 import S3DataUpload from './S3DataUpload';
 
@@ -46,29 +42,35 @@ class LoginForm extends Component {
       Expiration: '',
       isLoggedIn: false,
     };
+	}
 
-    AWSCognitoCredentials.identityChanged = (Previous, Current) => {
-			this.identityChanged(Previous, Current);
+	componentWillMount() {
+		this.getToken();
+	}
+
+	async getToken() {
+		await AccessToken.getCurrentAccessToken()
+			.then((data) => {
+				if (data !== null) {
+					const { accessToken } = data;
+					fbookToken = accessToken.toString();
+				}
+			});
+		this.props.loginStatus(fbookToken);
+	}
+
+	componentDidMount() {
+		AWSCognitoCredentials.identityChanged = (Previous, Current) => {
+			console.log('PreviousID:', Previous);
+			console.log('CurrentID:', Current);
     };
 
     AWSCognitoCredentials.getLogins = () => {
-      this.getLogins();
-    };
-	}
-
-	identityChanged(Previous, Current) {
-		console.log('PreviousID:', Previous);
-		console.log('CurrentID:', Current);
-	}
-
-	getLogins() {
-		if (supplyLogins) {
 			var map = {};
-			map[AWSCognitoCredentials.RNC_FACEBOOK_PROVIDER] = fbookToken;
+			map[AWSCognitoCredentials.RNC_FACEBOOK_PROVIDER] = this.props.facebookToken;
+			console.log(map);
 			return map;
-		} else {
-			return '';
-		}
+    };
 	}
 
 	async getCredAndID() {
@@ -165,6 +167,7 @@ class LoginForm extends Component {
 											this.onLoginInvoked(true, accessToken.toString());
 											this.initUser(accessToken);
 											this.Refresh();
+											this.props.loginStatus(accessToken.toString());
 										});
 								}
 							}
@@ -175,6 +178,7 @@ class LoginForm extends Component {
 								this.ClearCred();
 								this.ClearKeychain();
 								this.Refresh();
+								this.props.loginStatus('');
 							}
 						}
 					/>
@@ -197,4 +201,16 @@ const styles = {
 	},
 };
 
-export default LoginForm;
+const mapStateToProps = (state) => {
+	const {
+		facebookToken,
+		login,
+	} = state.auth;
+
+	return {
+		facebookToken,
+		login,
+	};
+};
+
+export default connect(mapStateToProps, { loginStatus })(LoginForm);

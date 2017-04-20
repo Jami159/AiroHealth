@@ -16,3 +16,7 @@ export const DEVICE_STATE_NOTIFYING = 'NOTIFYING';
 export const UPDATE_BATTERY = 'UPDATE_BATTERY';
 export const ADD_STRESS_VALS = 'ADD_STRESS_VALS';
 export const ADD_STEPS_VALS = 'ADD_STEPS_VALS';
+
+export const LOGIN_STATUS = 'LOGIN_STATUS';
+export const LOGGED_IN = 'LOGGED_IN';
+export const LOGGED_OUT = 'LOGGED_OUT';

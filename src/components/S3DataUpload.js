@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {
 	Platform,
-	Text,
 	View,
 } from 'react-native';
 import { connect } from 'react-redux';
@@ -10,11 +9,7 @@ import { zip } from 'react-native-zip-archive';
 import {AWSCognitoCredentials} from 'aws-sdk-react-native-core';
 import {AWSS3TransferUtility} from 'aws-sdk-react-native-transfer-utility';
 import {
-	Card,
-	CardSection,
-	Input,
 	Button,
-	Spinner,
 } from './common';
 
 var region = 'us-east-1';
@@ -63,10 +58,15 @@ class S3DataUpload extends Component {
 	}
 
 	async uploadObject() {
-		var fetchedCreds = await AWSCognitoCredentials.getCredentialsAsync();
+		var map = {};
+		map[AWSCognitoCredentials.RNC_FACEBOOK_PROVIDER] = this.props.facebookToken;
+		console.log(map);
+		AWSCognitoCredentials.setLogins(map); //ignored for iOS
+
+		/*var fetchedCreds = await AWSCognitoCredentials.getCredentialsAsync();
 		console.log(fetchedCreds);
 		var fetchedId = await AWSCognitoCredentials.getIdentityIDAsync();
-		console.log(fetchedId);
+		console.log(fetchedId);*/
 
 		AWSS3TransferUtility.initWithOptions({ region: region });
 
@@ -113,6 +113,7 @@ class S3DataUpload extends Component {
 	async upload(value) {
     try {
       var val = await AWSS3TransferUtility.upload({ requestid: value });
+      console.log('AWSS3TransferUtility.upload() called');
     } catch (e) {
       console.log('upload failed:', e);
     }
@@ -153,4 +154,14 @@ const styles = {
 	},
 };
 
-export default S3DataUpload;
+const mapStateToProps = (state) => {
+	const {
+		facebookToken,
+	} = state.auth;
+
+	return {
+		facebookToken,
+	};
+};
+
+export default connect(mapStateToProps, {})(S3DataUpload);
