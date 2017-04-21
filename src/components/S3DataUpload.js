@@ -4,6 +4,7 @@ import {
   NativeAppEventEmitter,
   Platform,
 	View,
+	NetInfo,
 } from 'react-native';
 import { connect } from 'react-redux';
 import RNFetchBlob from 'react-native-fetch-blob';
@@ -16,6 +17,7 @@ import { AWSS3TransferUtility } from 'aws-sdk-react-native-transfer-utility';
 import BackgroundTimer from 'react-native-background-timer';
 import {
 	loginStatus,
+	checkWifi,
 } from '../actions';
 import {
 	Button,
@@ -28,7 +30,7 @@ const EventEmitter = Platform.select({
 })();
 
 // start a global timer
-BackgroundTimer.start(60000); // delay in milliseconds
+BackgroundTimer.start(5000); // delay in milliseconds
 
 var region = 'us-east-1';
 var s3_bucket_name = 'airo-userfiles-mobilehub-1172289525';
@@ -77,17 +79,29 @@ class S3DataUpload extends Component {
 			return map;
     };
 
+    NetInfo.fetch().done(reach => this.props.checkWifi(reach.toString()));
+    NetInfo.addEventListener('change', this.handleConnectivityChange.bind(this));
+
     // listen for event
     EventEmitter.addListener('backgroundTimer', () => {
       // this will be executed every n seconds
       // even when app is the the background
-      this.uploadObject();
+      console.log('WIFI STATUS:', this.props.wifiStatus);
+      if (this.props.wifiStatus) {
+				this.uploadObject();
+      }
     });
 	}
 
 	componentWillUnmount() {
 		// stop the timer
 		BackgroundTimer.stop();	
+
+		NetInfo.removeEventListener('change', this.handleConnectivityChange.bind(this));
+	}
+
+	handleConnectivityChange(reach) {
+		this.props.checkWifi(reach.toString());
 	}
 
 	async uploadObject() {
@@ -208,11 +222,13 @@ const styles = {
 const mapStateToProps = (state) => {
 	const {
 		facebookToken,
+		wifiStatus,
 	} = state.auth;
 
 	return {
 		facebookToken,
+		wifiStatus,
 	};
 };
 
-export default connect(mapStateToProps, { loginStatus })(S3DataUpload);
+export default connect(mapStateToProps, { loginStatus, checkWifi })(S3DataUpload);

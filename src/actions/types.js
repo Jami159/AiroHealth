@@ -20,3 +20,5 @@ export const ADD_STEPS_VALS = 'ADD_STEPS_VALS';
 export const LOGIN_STATUS = 'LOGIN_STATUS';
 export const LOGGED_IN = 'LOGGED_IN';
 export const LOGGED_OUT = 'LOGGED_OUT';
+
+export const CHANGE_WIFI_STATUS = 'CHANGE_WIFI_STATUS';

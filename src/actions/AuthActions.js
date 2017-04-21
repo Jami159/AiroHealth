@@ -3,6 +3,7 @@ import {
 	LOGIN_STATUS,
 	LOGGED_IN,
 	LOGGED_OUT,
+	CHANGE_WIFI_STATUS,
 } from './types';
 
 export function loginStatus(token) {
@@ -35,3 +36,10 @@ const loggedOut = (dispatch) => {
 	});
 	Actions.auth({ type: 'reset' });
 };
+
+export function checkWifi(stat) {
+	return {
+		type: CHANGE_WIFI_STATUS,
+		status: stat === 'wifi' || stat === 'WIFI',
+	};
+}
