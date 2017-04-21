@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import {
-	Platform,
+	DeviceEventEmitter,
+  NativeAppEventEmitter,
+  Platform,
 	View,
 } from 'react-native';
 import { connect } from 'react-redux';
@@ -11,6 +13,7 @@ import {
 } from 'react-native-fbsdk';
 import { AWSCognitoCredentials } from 'aws-sdk-react-native-core';
 import { AWSS3TransferUtility } from 'aws-sdk-react-native-transfer-utility';
+import BackgroundTimer from 'react-native-background-timer';
 import {
 	loginStatus,
 } from '../actions';
@@ -18,6 +21,14 @@ import {
 	Button,
 	Card,
 } from './common';
+
+const EventEmitter = Platform.select({
+  ios: () => NativeAppEventEmitter,
+  android: () => DeviceEventEmitter,
+})();
+
+// start a global timer
+BackgroundTimer.start(60000); // delay in milliseconds
 
 var region = 'us-east-1';
 var s3_bucket_name = 'airo-userfiles-mobilehub-1172289525';
@@ -35,33 +46,25 @@ class S3DataUpload extends Component {
       totalUnits: '',
       fractionCompleted: '',
     };
-
-    AWSS3TransferUtility.progressEvent = (requestid, completedUnits, totalUnits, fractionCompleted, type) => {
-			this.progressEvent(requestid, completedUnits, totalUnits, fractionCompleted, type);
-    };
-
-    AWSS3TransferUtility.completionHandlerEvent = (requestid, error, request) => {
-			this.completionHandlerEvent(requestid, error, request);
-    };
-	}
-
-	progressEvent(requestid, completedUnits, totalUnits, fractionCompleted, type) {
-		this.setState({
-			requestid: requestid,
-			type: type,
-			completedUnits: completedUnits,
-			totalUnits: totalUnits,
-			fractionCompleted: fractionCompleted,
-		});
-	}
-
-	completionHandlerEvent(requestid, error, request) {
-		console.log('requestID:', requestid);
-		console.log('error:', JSON.stringify(error));
-		console.log('request:', JSON.stringify(request));
 	}
 
 	componentDidMount() {
+		AWSS3TransferUtility.progressEvent = (requestid, completedUnits, totalUnits, fractionCompleted, type) => {
+			this.setState({
+				requestid: requestid,
+				type: type,
+				completedUnits: completedUnits,
+				totalUnits: totalUnits,
+				fractionCompleted: fractionCompleted,
+			});
+    };
+
+    AWSS3TransferUtility.completionHandlerEvent = (requestid, error, request) => {
+			console.log('requestID:', requestid);
+			console.log('error:', JSON.stringify(error));
+			console.log('request:', JSON.stringify(request));
+    };
+
 		AWSCognitoCredentials.identityChanged = (Previous, Current) => {
 			console.log('PreviousID:', Previous);
 			console.log('CurrentID:', Current);
@@ -73,6 +76,18 @@ class S3DataUpload extends Component {
 			console.log(map);
 			return map;
     };
+
+    // listen for event
+    EventEmitter.addListener('backgroundTimer', () => {
+      // this will be executed every n seconds
+      // even when app is the the background
+      this.uploadObject();
+    });
+	}
+
+	componentWillUnmount() {
+		// stop the timer
+		BackgroundTimer.stop();	
 	}
 
 	async uploadObject() {

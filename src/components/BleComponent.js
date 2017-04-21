@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {
 	NativeAppEventEmitter,
+	DeviceEventEmitter,
 	Platform,
 	PermissionsAndroid,
 	AsyncStorage,
@@ -24,6 +25,11 @@ import {
 	byteToInt,
 	byteToAccl,
 } from './ParseDataHelper';
+
+const EventEmitter = Platform.select({
+  ios: () => NativeAppEventEmitter,
+  android: () => DeviceEventEmitter,
+})();
 
 var BLE_DEVICE_KEY = '@bleDevice:key';
 
@@ -78,11 +84,11 @@ class BleComponent extends Component {
 		this.handleDisconnectPeripheral = this.handleDisconnectPeripheral.bind(this);
 		this.handleCharacteristicValueUpdate = this.handleCharacteristicValueUpdate.bind(this);
 
-		NativeAppEventEmitter
+		EventEmitter
 			.addListener('BleManagerDiscoverPeripheral', this.handleDiscoverPeripheral);
-		NativeAppEventEmitter
+		EventEmitter
 			.addListener('BleManagerDisconnectPeripheral', this.handleDisconnectPeripheral);
-		NativeAppEventEmitter
+		EventEmitter
 			.addListener('BleManagerDidUpdateValueForCharacteristic', this.handleCharacteristicValueUpdate);
 
 		if (Platform.OS === 'android' && Platform.Version >= 23) {

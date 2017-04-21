@@ -139,6 +139,7 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-background-timer')
     compile project(':react-native-zip-archive')
     compile project(':react-native-fetch-blob')
     compile project(':react-native-image-picker')
