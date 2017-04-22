@@ -341,7 +341,8 @@ class BleComponent extends Component {
 					})
 					.catch((error) => {
 						console.log(error);
-						nextProps.changeDeviceState(nextProps.selectedDeviceId, ble.DEVICE_STATE_DISCONNECTED);
+						nextProps.changeDeviceState(nextProps.selectedDeviceId, ble.DEVICE_STATE_DISCONNECT);
+						this.props.startScan();
 					});
 				console.log('Connecting');
 				nextProps.changeDeviceState(nextProps.selectedDeviceId, ble.DEVICE_STATE_CONNECTING);
