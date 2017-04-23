@@ -5,6 +5,7 @@ import {
 	Platform,
 	PermissionsAndroid,
 	AsyncStorage,
+	View,
 } from 'react-native';
 import { connect } from 'react-redux';
 import BleManager from 'react-native-ble-manager';
@@ -314,10 +315,13 @@ class BleComponent extends Component {
 					.then(() => {
 						console.log('Disconnected');
 						nextProps.changeDeviceState(nextProps.selectedDeviceId, ble.DEVICE_STATE_DISCONNECTED);
+						//after disconnecting is successful, then start scan to try to reconnect
+						this.props.startScan();
 					})
 					.catch((error) => {
 						console.log(error);
-						nextProps.changeDeviceState(nextProps.selectedDeviceId, ble.DEVICE_STATE_DISCONNECTED);
+						//if there is an error trying to disconnect, then try to disconnect again
+						nextProps.changeDeviceState(nextProps.selectedDeviceId, ble.DEVICE_STATE_DISCONNECT);
 					});
 				console.log('Disconnecting');
 				nextProps.changeDeviceState(nextProps.selectedDeviceId, ble.DEVICE_STATE_DISCONNECTING);
@@ -341,8 +345,8 @@ class BleComponent extends Component {
 					})
 					.catch((error) => {
 						console.log(error);
+						//if there is an error trying to connect, then disconnect
 						nextProps.changeDeviceState(nextProps.selectedDeviceId, ble.DEVICE_STATE_DISCONNECT);
-						this.props.startScan();
 					});
 				console.log('Connecting');
 				nextProps.changeDeviceState(nextProps.selectedDeviceId, ble.DEVICE_STATE_CONNECTING);
