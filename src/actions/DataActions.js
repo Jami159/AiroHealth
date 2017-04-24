@@ -2,6 +2,7 @@ import {
 	UPDATE_BATTERY,
 	ADD_STRESS_VALS,
 	ADD_STEPS_VALS,
+	INIT_PPG_FILE,
 } from './types';
 
 export function updateBattery(value) {
@@ -22,5 +23,13 @@ export function addSteps(values) {
 	return {
 		type: ADD_STEPS_VALS,
 		values,
+	};
+}
+
+export function initPpgFile(path, time) {
+	return {
+		type: INIT_PPG_FILE,
+		path,
+		time,
 	};
 }

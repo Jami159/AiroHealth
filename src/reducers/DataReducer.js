@@ -4,6 +4,8 @@ const INITIAL_STATE = {
 	battery: 0,
 	stressData: [],
 	stepsData: [],
+	ppgFilePath: '',
+	ppgFileTime: 0,
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -14,6 +16,8 @@ export default (state = INITIAL_STATE, action) => {
 			return { ...state, stressData: [...state.stressData.concat(action.values)] };
 		case data.ADD_STEPS_VALS:
 			return { ...state, stepsData: [...state.stepsData.concat(action.values)] };
+		case data.INIT_PPG_FILE:
+			return { ...state, ppgFilePath: action.path, ppgFileTime: action.time };
 		default:
 			return state;
 	}

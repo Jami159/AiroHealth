@@ -5,10 +5,10 @@ import {
 	Platform,
 	PermissionsAndroid,
 	AsyncStorage,
-	View,
 } from 'react-native';
 import { connect } from 'react-redux';
 import BleManager from 'react-native-ble-manager';
+import RNFetchBlob from 'react-native-fetch-blob';
 import Algorithms from '../Algorithms';
 import {
 	startScan,
@@ -19,6 +19,7 @@ import {
 	updateBattery,
 	addStress,
 	addSteps,
+	initPpgFile,
 } from '../actions';
 import * as ble from '../actions/types';
 import {
@@ -33,6 +34,9 @@ const EventEmitter = Platform.select({
 })();
 
 var BLE_DEVICE_KEY = '@bleDevice:key';
+
+const gb_dirs = RNFetchBlob.fs.dirs;
+const gb_path = gb_dirs.DocumentDir;
 
 class BleComponent extends Component {
 	constructor() {
@@ -110,7 +114,8 @@ class BleComponent extends Component {
 				});
     }
 
-    this.initializeBLE();
+    this.initializeBLE().done();
+    this.initializeLocalFiles().done();
 	}
 
 	async initializeBLE() {
@@ -136,6 +141,106 @@ class BleComponent extends Component {
 
 		if (!this.props.scanning && this.props.bleState === ble.DEVICE_STATE_DISCONNECTED) {
 			this.props.startScan();
+		}
+	}
+
+	async initializeLocalFiles() {
+		RNFetchBlob.fs.ls(gb_path)
+			.then((folders) => {
+				console.log(folders);
+				if (folders.includes('toBeUploaded')) {
+					RNFetchBlob.fs.isDir(gb_path + '/toBeUploaded')
+						.then((isDir) => {
+							if (isDir) {
+								console.log('toBeUploaded is a directory');
+							} else {
+								RNFetchBlob.fs.unlink(gb_path + '/toBeUploaded')
+									.then(() => {
+										console.log('toBeUploaded (not a dir) deleted');
+
+										this.makeDir(gb_path + '/toBeUploaded');
+									})
+									.catch((err) => {
+										console.log(err);
+									});
+							}
+						});
+				} else {
+					this.makeDir(gb_path + '/toBeUploaded');
+				}
+
+				if (folders.includes('currDataDir')) {
+					RNFetchBlob.fs.isDir(gb_path + '/currDataDir')
+						.then((isDir1) => {
+							if (isDir1) {
+								console.log('currDataDir is a directory')
+
+								RNFetchBlob.fs.isDir(gb_path + '/toBeUploaded')
+									.then((isDir2) => {
+										if (isDir2) {
+											console.log('toBeUploaded is a directory');
+
+											RNFetchBlob.fs.ls(gb_path + '/currDataDir')
+												.then((files) => {
+													this.writeFile(gb_path + '/currDataDir/', Date.now());
+
+													this.moveFiles(files);
+												});
+										} else {
+											this.writeFile(gb_path + '/currDataDir/', Date.now());
+										}
+									});
+							} else {
+								RNFetchBlob.fs.unlink(gb_path + '/currDataDir')
+									.then(() => {
+										console.log('currDataDir (not a dir) deleted');
+
+										this.writeFile(gb_path + '/currDataDir/', Date.now());
+									})
+									.catch((err) => {
+										console.log(err);
+									});
+							}
+						});
+				} else {
+					this.writeFile(gb_path + '/currDataDir/', Date.now());
+				}
+			});
+	}
+
+	makeDir(path) {
+		RNFetchBlob.fs.mkdir(path)
+			.then(() => {
+				console.log(path, 'created');
+			})
+			.catch((err) => {
+				console.log(err);
+			});
+	}
+
+	writeFile(dir, time) {
+		var filePath = dir + 'ppg' + JSON.stringify(time) + '.txt';
+		RNFetchBlob.fs.writeFile(filePath, JSON.stringify(new Date(time)) + '\n', 'utf8')
+			.then(() => {
+				console.log('ppg' + JSON.stringify(time) + ' written');
+				this.props.initPpgFile(filePath, time);
+				console.log(this.props.ppgFilePath, this.props.ppgFileTime);
+			})
+			.catch((err) => {
+				console.log(err);
+			});
+	}
+
+	moveFiles(files) {
+		for (var i = 0; i < files.length; i++) {
+			var f = files[i];
+			RNFetchBlob.fs.mv(gb_path + '/currDataDir/' + files[i], gb_path + '/toBeUploaded/' + files[i])
+				.then((file) => {
+					console.log(f, 'moved');
+				})
+				.catch((err) => {
+					console.log(err);
+				});
 		}
 	}
 
@@ -354,6 +459,23 @@ class BleComponent extends Component {
 		}
 	}
 
+	writeToPpgFile(arr) {
+		var ppgStr = '';
+
+		for (var i = 0; i < arr.length; i++) {
+			var tmpTime = arr[i][0] - Math.floor(this.props.ppgFileTime / 1000);
+			ppgStr += JSON.stringify(tmpTime) + ',' + JSON.stringify(arr[i][1]) + '\n';
+		}
+
+		RNFetchBlob.fs.appendFile(this.props.ppgFilePath, ppgStr, 'utf8')
+			.then(() => {
+				console.log(this.props.ppgFilePath, 'WRITTEN');
+			})
+			.catch((err) => {
+				console.log(err);
+			});
+	}
+
 	async getStress() {
 		try {
 			var a = this.data.numPPG;
@@ -361,6 +483,8 @@ class BleComponent extends Component {
 
 			if (a >= 1000 * (b + 1)) {
 				var sliced = this.data.ppgSamples.slice(b * 1000, (b + 1) * 1000);
+
+				this.writeToPpgFile(sliced);
 
 				this.data.callGetStress++;
 				var newStress = await Algorithms.getStress(sliced);
@@ -423,6 +547,8 @@ const mapStateToProps = (state) => {
 		battery,
 		stressData,
 		stepsData,
+		ppgFilePath,
+		ppgFileTime,
 	} = state.algoData;
 
 	return {
@@ -434,6 +560,8 @@ const mapStateToProps = (state) => {
 		battery,
 		stressData,
 		stepsData,
+		ppgFilePath,
+		ppgFileTime,
 	};
 };
 
@@ -446,4 +574,5 @@ export default connect(mapStateToProps, {
 	updateBattery,
 	addStress,
 	addSteps,
+	initPpgFile,
 })(BleComponent);

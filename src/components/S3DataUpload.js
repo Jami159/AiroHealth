@@ -83,14 +83,14 @@ class S3DataUpload extends Component {
     NetInfo.addEventListener('change', this.handleConnectivityChange.bind(this));
 
     // listen for event
-    EventEmitter.addListener('backgroundTimer', () => {
+    /*EventEmitter.addListener('backgroundTimer', () => {
       // this will be executed every n seconds
       // even when app is the the background
       console.log('WIFI STATUS:', this.props.wifiStatus);
       if (this.props.wifiStatus) {
 				this.uploadObject();
       }
-    });
+    });*/
 	}
 
 	componentWillUnmount() {

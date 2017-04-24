@@ -22,3 +22,5 @@ export const LOGGED_IN = 'LOGGED_IN';
 export const LOGGED_OUT = 'LOGGED_OUT';
 
 export const CHANGE_WIFI_STATUS = 'CHANGE_WIFI_STATUS';
+
+export const INIT_PPG_FILE = 'INIT_PPG_FILE';
