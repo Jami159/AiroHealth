@@ -235,7 +235,7 @@ class BleComponent extends Component {
 		for (var i = 0; i < files.length; i++) {
 			var f = files[i];
 			RNFetchBlob.fs.mv(gb_path + '/currDataDir/' + files[i], gb_path + '/toBeUploaded/' + files[i])
-				.then((file) => {
+				.then(() => {
 					console.log(f, 'moved');
 				})
 				.catch((err) => {
@@ -306,7 +306,7 @@ class BleComponent extends Component {
 		this.data.current = byteToInt(byteArr.slice(2, 3), true);
 		this.data.smallPackTime = byteToInt(byteArr.slice(3, 6), false);
 
-		console.log(this.props.battery, this.data.voltage, this.data.current, new Date(this.data.smallPackTime * 1000));
+		//console.log(this.props.battery, this.data.voltage, this.data.current, new Date(this.data.smallPackTime * 1000));
 	}
 
 	parseLargePackets(byteArr, n, curtime) {
@@ -347,7 +347,7 @@ class BleComponent extends Component {
             this.data.bigPackTime = byteToInt(this.data.sampleQueue.slice(3, 6), false);
 
             this.data.sampleQueue = [];
-            console.log(new Date(this.data.bigPackTime * 1000));
+            //console.log(new Date(this.data.bigPackTime * 1000));
           }
         } else {
           if ((this.data.smallPackTime >= 0) && (this.data.bigPackTime >= 0)) {

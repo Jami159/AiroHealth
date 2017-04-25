@@ -18,6 +18,8 @@ import BackgroundTimer from 'react-native-background-timer';
 import {
 	loginStatus,
 	checkWifi,
+
+	initPpgFile,
 } from '../actions';
 import {
 	Button,
@@ -30,12 +32,15 @@ const EventEmitter = Platform.select({
 })();
 
 // start a global timer
-BackgroundTimer.start(5000); // delay in milliseconds
+BackgroundTimer.start(300000); // delay in milliseconds
 
 var region = 'us-east-1';
 var s3_bucket_name = 'airo-userfiles-mobilehub-1172289525';
 
 var requestTmp = { isDownload: false, id: '' };
+
+const gb_dirs = RNFetchBlob.fs.dirs;
+const gb_path = gb_dirs.DocumentDir;
 
 class S3DataUpload extends Component {
 	constructor(props) {
@@ -65,6 +70,20 @@ class S3DataUpload extends Component {
 			console.log('requestID:', requestid);
 			console.log('error:', JSON.stringify(error));
 			console.log('request:', JSON.stringify(request));
+
+			if (Platform.OS === 'android') {
+				if (error === undefined) {
+					console.log('Upload to S3 successful!');
+					RNFetchBlob.fs.ls(gb_path + '/toBeUploaded')
+						.then((files) => {
+							console.log(files);
+
+							this.deleteFiles(files);
+						});
+				} else {
+					console.log('Upload to S3 failed!');
+				}
+			}
     };
 
 		AWSCognitoCredentials.identityChanged = (Previous, Current) => {
@@ -83,14 +102,47 @@ class S3DataUpload extends Component {
     NetInfo.addEventListener('change', this.handleConnectivityChange.bind(this));
 
     // listen for event
-    /*EventEmitter.addListener('backgroundTimer', () => {
+    EventEmitter.addListener('backgroundTimer', () => {
       // this will be executed every n seconds
       // even when app is the the background
       console.log('WIFI STATUS:', this.props.wifiStatus);
       if (this.props.wifiStatus) {
-				this.uploadObject();
+				RNFetchBlob.fs.ls(gb_path + '/currDataDir')
+					.then((files) => {
+						console.log(files);
+
+						this.writeFile(gb_path + '/currDataDir/', Date.now());
+
+						this.uploadObject(files);
+					});
       }
-    });*/
+    });
+	}
+
+	writeFile(dir, time) {
+		var filePath = dir + 'ppg' + JSON.stringify(time) + '.txt';
+		RNFetchBlob.fs.writeFile(filePath, JSON.stringify(new Date(time)) + '\n', 'utf8')
+			.then(() => {
+				console.log('ppg' + JSON.stringify(time) + ' written');
+				this.props.initPpgFile(filePath, time);
+				console.log(this.props.ppgFilePath, this.props.ppgFileTime);
+			})
+			.catch((err) => {
+				console.log(err);
+			});
+	}
+
+	deleteFiles(files) {
+		for (var i = 0; i < files.length; i++) {
+			var f = files[i];
+			RNFetchBlob.fs.unlink(gb_path + '/toBeUploaded/' + files[i])
+				.then(() => {
+					console.log(f, 'deleted');
+				})
+				.catch((err) => {
+					console.log(err);
+				});
+		}
 	}
 
 	componentWillUnmount() {
@@ -104,7 +156,7 @@ class S3DataUpload extends Component {
 		this.props.checkWifi(reach.toString());
 	}
 
-	async uploadObject() {
+	async uploadObject(files) {
 		var map = {};
 		map[AWSCognitoCredentials.RNC_FACEBOOK_PROVIDER] = this.props.facebookToken;
 		console.log(map);
@@ -112,32 +164,39 @@ class S3DataUpload extends Component {
 
 		AWSS3TransferUtility.initWithOptions({ region: region });
 
-		const dirs = RNFetchBlob.fs.dirs;
-		const path = dirs.DocumentDir;
+		for (var i = 0; i < files.length; i++) {
+			var f = files[i];
+			await RNFetchBlob.fs.mv(gb_path + '/currDataDir/' + files[i], gb_path + '/toBeUploaded/' + files[i])
+				.then(() => {
+					console.log(f, 'moved');
+				})
+				.catch((err) => {
+					console.log(err);
+				});
+		}
 
-		await RNFetchBlob.fs.writeFile(path + '/testFile.txt', JSON.stringify(new Date(Date.now())), 'utf8')
-			.then(() => {
-				console.log('FILE WRITTEN!');
-				console.log(path);
+		await zip(gb_path + '/toBeUploaded', `${gb_path}/toBeUploaded.zip`)
+			.then((path) => {
+				console.log(`zip completed at ${path}`);
 			})
-			.catch((err) => {
-				console.log(err);
+			.catch((error) => {
+				console.log(error);
 			});
 
 		var s3Path = '';
 		if (Platform.OS === 'android') {
-			s3Path = path + '/testFile.txt';
+			s3Path = gb_path + '/toBeUploaded.zip';
 		} else if (Platform.OS === 'ios') {
-			s3Path = 'file://' + path + '/testFile.txt';
+			s3Path = 'file://' + gb_path + '/toBeUploaded.zip';
 		}
 
-		var UploadKeyName = 'Jami/testFile';
+		var UploadKeyName = 'Jami/ppg' + JSON.stringify(this.props.ppgFileTime);
 		AWSS3TransferUtility.createUploadRequest(
 			{
 				path: s3Path,
 				bucket: s3_bucket_name,
 				key: UploadKeyName,
-				contenttype: 'text/plain',
+				contenttype: 'application/zip',
 				subscribe: true,
 				completionhandler: true,
 			},
@@ -156,8 +215,19 @@ class S3DataUpload extends Component {
     try {
       var val = await AWSS3TransferUtility.upload({ requestid: value });
       console.log('AWSS3TransferUtility.upload() called');
+
+      if (Platform.OS === 'ios') {
+      	console.log('Upload to S3 successful!');
+				RNFetchBlob.fs.ls(gb_path + '/toBeUploaded')
+					.then((files) => {
+						console.log(files);
+
+						this.deleteFiles(files);
+					});
+      }
     } catch (e) {
       console.log('upload failed:', e);
+      console.log('Upload to S3 failed!');
     }
   }
 
@@ -225,10 +295,18 @@ const mapStateToProps = (state) => {
 		wifiStatus,
 	} = state.auth;
 
+	const {
+		ppgFilePath,
+		ppgFileTime,
+	} = state.algoData;
+
 	return {
 		facebookToken,
 		wifiStatus,
+
+		ppgFilePath,
+		ppgFileTime,
 	};
 };
 
-export default connect(mapStateToProps, { loginStatus, checkWifi })(S3DataUpload);
+export default connect(mapStateToProps, { loginStatus, checkWifi, initPpgFile })(S3DataUpload);
