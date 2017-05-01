@@ -306,7 +306,7 @@ class BleComponent extends Component {
 		this.data.current = byteToInt(byteArr.slice(2, 3), true);
 		this.data.smallPackTime = byteToInt(byteArr.slice(3, 6), false);
 
-		//console.log(this.props.battery, this.data.voltage, this.data.current, new Date(this.data.smallPackTime * 1000));
+		console.log(this.props.battery, this.data.voltage, this.data.current, new Date(this.data.smallPackTime * 1000));
 	}
 
 	parseLargePackets(byteArr, n, curtime) {
@@ -323,6 +323,7 @@ class BleComponent extends Component {
         var time = this.data.smallPackTime - this.data.bigPackTime;
         var time_now = curtime - time;
 
+        //TODO: change this filter
         if ((time_now - this.data.old_time) < 0) {
           time_now = this.data.old_time;
         }
@@ -347,7 +348,7 @@ class BleComponent extends Component {
             this.data.bigPackTime = byteToInt(this.data.sampleQueue.slice(3, 6), false);
 
             this.data.sampleQueue = [];
-            //console.log(new Date(this.data.bigPackTime * 1000));
+            console.log(new Date(this.data.bigPackTime * 1000));
           }
         } else {
           if ((this.data.smallPackTime >= 0) && (this.data.bigPackTime >= 0)) {
@@ -394,7 +395,7 @@ class BleComponent extends Component {
 		//Handle Scanning
 		if (nextProps.scanning !== this.props.scanning) {
 			if (nextProps.scanning) {
-				BleManager.scan(['FFF0'], 18000, false)
+				BleManager.scan(['FFF0'], 72000, false)
 					.then(() => {
 						console.log('Scan Started');
 					})
@@ -482,7 +483,7 @@ class BleComponent extends Component {
 			var b = this.data.ppgCounter;
 
 			if (a >= 1000 * (b + 1)) {
-				var sliced = this.data.ppgSamples.slice(b * 1000, (b + 1) * 1000);
+				var sliced = this.data.ppgSamples.splice(0, 1000);
 
 				this.writeToPpgFile(sliced);
 
@@ -508,7 +509,7 @@ class BleComponent extends Component {
 			var b = this.data.acclCounter;
 
 			if (a >= 500 * (b + 1)) {
-				var sliced = this.data.acclSamples.slice(b * 500, (b + 1) * 500);
+				var sliced = this.data.acclSamples.slice(0, 500);
 
 				this.data.callGetSteps++;
 				var newSteps = await Algorithms.getSteps(sliced);
