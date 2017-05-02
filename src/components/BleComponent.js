@@ -514,7 +514,7 @@ class BleComponent extends Component {
 			var b = this.data.acclCounter;
 
 			if (a >= 500 * (b + 1)) {
-				var sliced = this.data.acclSamples.slice(0, 500);
+				var sliced = this.data.acclSamples.splice(0, 500);
 
 				this.data.callGetSteps++;
 				var newSteps = await Algorithms.getSteps(sliced);
