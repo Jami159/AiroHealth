@@ -247,7 +247,12 @@ class BleComponent extends Component {
 	handleDiscoverPeripheral(device) {
 		console.log('Got ble data', device);
 		//this.props.deviceFound(device); //COME BACK TO THIS
-		if (device.id === this.state.deviceID) {
+		if (this.props.bleDevice !== null) {
+			if (device.id === this.props.bleDevice.id) {
+				this.props.changeDeviceState(device.id, ble.DEVICE_STATE_CONNECT);
+				this.props.deviceFound(device);
+			}
+		} else if (device.name === 'AAAoHealth' || device.name === 'Simple BLE Peripheral' || device.name === 'AiroHealth') {
 			this.props.changeDeviceState(device.id, ble.DEVICE_STATE_CONNECT);
 			this.props.deviceFound(device);
 
