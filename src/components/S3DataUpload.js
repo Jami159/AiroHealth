@@ -5,6 +5,7 @@ import {
   Platform,
 	View,
 	NetInfo,
+	AsyncStorage,
 } from 'react-native';
 import { connect } from 'react-redux';
 import RNFetchBlob from 'react-native-fetch-blob';
@@ -18,6 +19,7 @@ import BackgroundTimer from 'react-native-background-timer';
 import {
 	loginStatus,
 	checkWifi,
+	initUserFB,
 
 	initPpgFile,
 } from '../actions';
@@ -42,6 +44,8 @@ var requestTmp = { isDownload: false, id: '' };
 const gb_dirs = RNFetchBlob.fs.dirs;
 const gb_path = gb_dirs.DocumentDir;
 
+const USER_DATA_KEY = '@userData:key';
+
 class S3DataUpload extends Component {
 	constructor(props) {
 		super(props);
@@ -56,6 +60,8 @@ class S3DataUpload extends Component {
 	}
 
 	componentDidMount() {
+		this.getUserData();
+
 		AWSS3TransferUtility.progressEvent = (requestid, completedUnits, totalUnits, fractionCompleted, type) => {
 			this.setState({
 				requestid: requestid,
@@ -145,6 +151,13 @@ class S3DataUpload extends Component {
 		}
 	}
 
+	async getUserData() {
+		var userData = await AsyncStorage.getItem(USER_DATA_KEY);
+		if (userData !== null) {
+			this.props.initUserFB(JSON.parse(userData).name, JSON.parse(userData).id);
+		}
+	}
+
 	componentWillUnmount() {
 		// stop the timer
 		BackgroundTimer.stop();	
@@ -190,7 +203,9 @@ class S3DataUpload extends Component {
 			s3Path = 'file://' + gb_path + '/toBeUploaded.zip';
 		}
 
-		var UploadKeyName = 'Jami/ppg' + JSON.stringify(this.props.ppgFileTime);
+		var userName = this.props.user.name.replace(/\s/g, '');
+
+		var UploadKeyName = userName + '/ppg_' + JSON.stringify(this.props.ppgFileTime);
 		AWSS3TransferUtility.createUploadRequest(
 			{
 				path: s3Path,
@@ -293,6 +308,7 @@ const mapStateToProps = (state) => {
 	const {
 		facebookToken,
 		wifiStatus,
+		user,
 	} = state.auth;
 
 	const {
@@ -303,10 +319,11 @@ const mapStateToProps = (state) => {
 	return {
 		facebookToken,
 		wifiStatus,
+		user,
 
 		ppgFilePath,
 		ppgFileTime,
 	};
 };
 
-export default connect(mapStateToProps, { loginStatus, checkWifi, initPpgFile })(S3DataUpload);
+export default connect(mapStateToProps, { loginStatus, checkWifi, initUserFB, initPpgFile })(S3DataUpload);

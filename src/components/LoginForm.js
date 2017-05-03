@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {
 	View,
 	Alert,
+	AsyncStorage,
 } from 'react-native';
 import { connect } from 'react-redux';
 import {
@@ -11,19 +12,17 @@ import {
 import { AWSCognitoCredentials } from 'aws-sdk-react-native-core';
 import {
 	loginStatus,
+	initUserFB,
 } from '../actions';
 import {
 	Card,
 } from './common';
 
+const USER_DATA_KEY = '@userData:key';
+
 class LoginForm extends Component {
 	constructor(props) {
 		super(props);
-
-		this.user = {
-			name: '',
-			id: '',
-		};
 
 		this.state = {
       Authenticated: false,
@@ -115,8 +114,8 @@ class LoginForm extends Component {
 			.then((response) => response.json())
 			.then((json) => {
 				console.log(json);
-				this.user.name = json.name;
-				this.user.id = json.id;
+				this.props.initUserFB(json.name, json.id);
+				AsyncStorage.setItem(USER_DATA_KEY, JSON.stringify(this.props.user));
 			})
 			.catch((error) => {
 				console.log('ERROR GETTING DATA FROM FACEBOOK:', error);
@@ -190,12 +189,14 @@ const mapStateToProps = (state) => {
 	const {
 		facebookToken,
 		login,
+		user,
 	} = state.auth;
 
 	return {
 		facebookToken,
 		login,
+		user,
 	};
 };
 
-export default connect(mapStateToProps, { loginStatus })(LoginForm);
+export default connect(mapStateToProps, { loginStatus, initUserFB })(LoginForm);

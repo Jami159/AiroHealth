@@ -3,11 +3,16 @@ import {
 	LOGGED_IN,
 	LOGGED_OUT,
 	CHANGE_WIFI_STATUS,
+	INIT_USER_FB,
 } from '../actions/types';
 
 const INITIAL_STATE = {
 	facebookToken: '',
 	login: false,
+	user: {
+		name: '',
+		id: '',
+	},
 
 	wifiStatus: false,
 };
@@ -22,6 +27,15 @@ export default (state = INITIAL_STATE, action) => {
 			return { ...state, login: false };
 		case CHANGE_WIFI_STATUS:
 			return { ...state, wifiStatus: action.status };
+		case INIT_USER_FB:
+			return {
+				...state,
+				user: {
+					...state.user,
+					name: action.name,
+					id: action.id,
+				}
+			};
 		default:
 			return state;
 	}

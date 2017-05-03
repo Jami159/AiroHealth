@@ -4,6 +4,7 @@ import {
 	LOGGED_IN,
 	LOGGED_OUT,
 	CHANGE_WIFI_STATUS,
+	INIT_USER_FB,
 } from './types';
 
 export function loginStatus(token) {
@@ -41,5 +42,13 @@ export function checkWifi(stat) {
 	return {
 		type: CHANGE_WIFI_STATUS,
 		status: stat === 'wifi' || stat === 'WIFI',
+	};
+}
+
+export function initUserFB(name, id) {
+	return {
+		type: INIT_USER_FB,
+		name,
+		id,
 	};
 }
