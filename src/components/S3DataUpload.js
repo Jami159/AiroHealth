@@ -177,6 +177,26 @@ class S3DataUpload extends Component {
 
 		AWSS3TransferUtility.initWithOptions({ region: region });
 
+		var delFlag = false;
+
+		await RNFetchBlob.fs.ls(gb_path)
+			.then((files) => {
+				console.log(files);
+				if (files.includes('toBeUploaded.zip')) {
+					delFlag = true;
+				}
+			});
+
+		if (delFlag) {
+			await RNFetchBlob.fs.unlink(gb_path + '/toBeUploaded.zip')
+				.then(() => {
+					console.log('toBeUploaded.zip deleted');
+				})
+				.catch((err) => {
+					console.log(err);
+				});
+		}
+
 		for (var i = 0; i < files.length; i++) {
 			var f = files[i];
 			await RNFetchBlob.fs.mv(gb_path + '/currDataDir/' + files[i], gb_path + '/toBeUploaded/' + files[i])
