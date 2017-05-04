@@ -289,26 +289,7 @@ class S3DataUpload extends Component {
   }
 
 	render() {
-		return (
-			<Card>
-				<View style={styles.buttonStyle}>
-					<Button onPress={this.uploadObject.bind(this)}>
-						Upload to server
-					</Button>
-				</View>
-				<View style={styles.buttonStyle}>
-					<LoginButton
-						onLogoutFinished={
-							() => {
-								this.props.loginStatus('');
-								this.ClearCred();
-								this.ClearKeychain();
-							}
-						}
-					/>
-				</View>
-			</Card>
-		);
+		return null;
 	}
 }
 

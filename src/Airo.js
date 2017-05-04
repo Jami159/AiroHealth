@@ -13,6 +13,7 @@ import reducers from './reducers';
 import Router from './Router';
 import BleComponent from './components/BleComponent';
 import ErrorComponent from './components/ErrorComponent';
+import S3DataUpload from './components/S3DataUpload';
 
 class Airo extends Component {
 	componentWillMount() {
@@ -31,6 +32,7 @@ class Airo extends Component {
 			<Provider store={store}>
 				<View style={{ flex: 1 }}>
 					<ErrorComponent />
+					<S3DataUpload />
 					<Router />
 					<BleComponent />
 				</View>

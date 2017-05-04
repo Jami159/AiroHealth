@@ -5,7 +5,7 @@ import {
 	Actions,
 } from 'react-native-router-flux';
 import LoginForm from './components/LoginForm';
-import S3DataUpload from './components/S3DataUpload';
+import ProgressPage from './components/ProgressPage';
 
 const RouterComponent = () => {
 	return (
@@ -19,9 +19,9 @@ const RouterComponent = () => {
 			</Scene>
 			<Scene key="main">
 				<Scene
-					key="S3"
-					component={S3DataUpload}
-					title="Upload Data"
+					key="btPairr"
+					component={ProgressPage}
+					title="Pair/Unpair"
 				/>
 			</Scene>
 		</Router>
