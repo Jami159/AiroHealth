@@ -161,6 +161,8 @@ class LoginForm extends Component {
 						onLogoutFinished={
 							() => {
 								this.props.loginStatus('');
+								this.props.initUserFB('', '');
+								AsyncStorage.setItem(USER_DATA_KEY, JSON.stringify(this.props.user));
 								this.ClearCred();
 								this.ClearKeychain();
 								//this.Refresh();
