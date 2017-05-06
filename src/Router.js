@@ -19,7 +19,7 @@ const RouterComponent = () => {
 			</Scene>
 			<Scene key="main">
 				<Scene
-					key="btPairr"
+					key="btPair"
 					component={ProgressPage}
 					title="Pair/Unpair"
 				/>

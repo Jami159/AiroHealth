@@ -4,6 +4,8 @@ import {
 } from 'react-native';
 import { connect } from 'react-redux';
 import {
+	startScan,
+
 	deviceFound,
 	changeDeviceState,
 } from '../actions';
@@ -15,8 +17,13 @@ import {
 
 class ProgressPage extends Component {
 	pairDevice() {
-		this.props.changeDeviceState(this.props.selectedDeviceId, ble.DEVICE_STATE_DISCONNECT);
-		this.props.deviceFound(null);
+		if (bleState !== ble.DEVICE_STATE_DISCONNECTED) {
+			this.props.changeDeviceState(this.props.selectedDeviceId, ble.DEVICE_STATE_DISCONNECT);
+			this.props.deviceFound(null);
+		} else {
+			this.props.deviceFound(null);
+			this.props.startScan();
+		}
 	}
 	render() {
 		return (
@@ -47,12 +54,14 @@ const mapStateToProps = (state) => {
 	const {
 		bleDevice,
 		selectedDeviceId,
+		bleState,
 	} = state.ble;
 
 	return {
 		bleDevice,
 		selectedDeviceId,
+		bleState,
 	};
 };
 
-export default connect(mapStateToProps, { deviceFound, changeDeviceState })(ProgressPage);
+export default connect(mapStateToProps, { startScan, deviceFound, changeDeviceState })(ProgressPage);
